@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmberStone MC — Minecraft Server</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-orange: #ff6a00;
+            --secondary-orange: #ff8c42;
+            --accent-gold: #b8860b;
+            --dark-bg: #0f0f0f;
+            --card-bg: rgba(20, 15, 10, 0.85);
+            --text-primary: #f5f5f5;
+            --text-secondary: #d0d0d0;
+            --border-color: rgba(255, 100, 0, 0.2);
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Modern gradient background */
+        .background-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(ellipse at top, rgba(255, 106, 0, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom right, rgba(184, 134, 11, 0.05) 0%, transparent 50%),
+                linear-gradient(180deg, #0f0f0f 0%, #1a1a1a 100%);
+        }
+
+        /* Floating particles */
+        .particle {
+            position: fixed;
+            width: 2px;
+            height: 2px;
+            background: var(--primary-orange);
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.4;
+            animation: float-particle 20s infinite;
+            box-shadow: 0 0 6px var(--primary-orange);
+        }
+
+        @keyframes float-particle {
+            0% {
+                transform: translateY(100vh) translateX(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.4;
+            }
+            90% {
+                opacity: 0.4;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 1.5rem 0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-orange);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+        }
+
+        .hero-logo {
+            max-width: 600px;
+            width: 100%;
+            height: auto;
+            margin-bottom: 2rem;
+            filter: drop-shadow(0 10px 40px rgba(255, 106, 0, 0.3));
+            animation: logo-float 6s ease-in-out infinite;
+        }
+
+        @keyframes logo-float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--accent-gold);
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-tagline {
+            font-size: 1.4rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 2rem;
+            background: rgba(255, 106, 0, 0.1);
+            border: 1px solid rgba(255, 106, 0, 0.3);
+            border-radius: 50px;
+            color: var(--secondary-orange);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 3rem;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1rem;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-orange), var(--secondary-orange));
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 106, 0, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--secondary-orange);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 106, 0, 0.1);
+            border-color: var(--primary-orange);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-orange), var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* Card Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 106, 0, 0.4);
+            box-shadow: 0 20px 40px rgba(255, 106, 0, 0.1);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: var(--secondary-orange);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .card-text {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Image Showcase */
+        .image-showcase {
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            margin: 3rem 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .image-showcase img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-orange), var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        /* Feature Showcase */
+        .feature-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin: 4rem 0;
+        }
+
+        .feature-content h3 {
+            font-size: 2rem;
+            color: var(--secondary-orange);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-content p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-text {
+            color: var(--secondary-orange);
+            font-weight: 600;
+        }
+
+        /* Coming Soon Box */
+        .coming-soon-box {
+            background: linear-gradient(135deg, rgba(255, 106, 0, 0.1), rgba(184, 134, 11, 0.05));
+            border: 2px dashed var(--border-color);
+            border-radius: 16px;
+            padding: 3rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .coming-soon-box h3 {
+            font-size: 2rem;
+            color: var(--primary-orange);
+            margin-bottom: 1rem;
+        }
+
+        .coming-soon-box p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(15, 15, 15, 0.95);
+            border-top: 1px solid var(--border-color);
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-orange);
+        }
+
+        .footer-text {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .feature-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-logo {
+                max-width: 400px;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-logo {
+                max-width: 300px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Fade in animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="background-gradient"></div>
+    
+    <!-- Floating particles -->
+    <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="particle" style="left: 25%; animation-delay: 3s;"></div>
+    <div class="particle" style="left: 40%; animation-delay: 6s;"></div>
+    <div class="particle" style="left: 55%; animation-delay: 9s;"></div>
+    <div class="particle" style="left: 70%; animation-delay: 12s;"></div>
+    <div class="particle" style="left: 85%; animation-delay: 15s;"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <img src="logo.png" alt="EmberStone" class="nav-logo">
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#gamemodes">Gamemodes</a></li>
+                <li><a href="#join">Join</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="logo.png" alt="EmberStone Logo" class="hero-logo">
+        <p class="hero-subtitle">Minecraft Server</p>
+        <p class="hero-tagline">
+            Enter a world where fire remembers, reality fractures, and every choice shapes the future. 
+            Descend into dungeons that are failures that never finished happening. Become Emberbound.
+        </p>
+        <div class="status-badge">
+            <span>⚙️</span>
+            <span>SERVER UNDER DEVELOPMENT — COMING SOON</span>
+        </div>
+        <div class="cta-group">
+            <a href="#join" class="btn btn-primary">Join the Waitlist</a>
+            <a href="#features" class="btn btn-secondary">Explore Features</a>
+        </div>
+    </section>
+
+    <!-- Hero Image -->
+    <div class="container">
+        <div class="image-showcase fade-in">
+            <img src="hero.jpg" alt="EmberStone World">
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">What is EmberStone?</h2>
+                <p class="section-subtitle">
+                    A lore-driven Minecraft server set in a fractured world where the Emberstone Prime shattered reality itself
+                </p>
+            </div>
+
+            <div class="feature-showcase fade-in">
+                <div class="feature-content">
+                    <h3>The Fractured World</h3>
+                    <p>
+                        When the Great Reforging failed, the world didn't end—it adapted. Cities collapsed into labyrinths. 
+                        Wardens became prisoners bound to unstable reality. And you, the <span class="highlight-text">Emberbound</span>, 
+                        feel the world differently.
+                    </p>
+                    <p>
+                        Heat never leaves your bones. Ancient mechanisms recognize you. 
+                        Gear doesn't obey you—it remembers you.
+                    </p>
+                    <p>
+                        This is not just another server. This is a world that watches, listens, and responds. 
+                        Every dungeon cleared, every shard reclaimed, every choice made adds weight to the Emberstone's decision.
+                    </p>
+                </div>
+                <div class="image-showcase">
+                    <img src="Emberbound.jpg" alt="Emberbound Character">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section" id="features" style="background: rgba(15, 15, 15, 0.5);">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">First Gamemode: Dungeons</h2>
+                <p class="section-subtitle">
+                    <span class="highlight-text">Dungeons are not places. They are failures that never finished happening.</span>
+                </p>
+            </div>
+
+            <div class="image-showcase fade-in">
+                <img src="dungeon1.jpg" alt="Dungeon Interior">
+            </div>
+
+            <div class="card-grid fade-in">
+                <div class="card">
+                    <div class="card-icon">⚔️</div>
+                    <h3 class="card-title">Dynamic Instances</h3>
+                    <p class="card-text">
+                        Every dungeon run is unique. No two journeys are the same. Experience procedurally generated challenges in worlds that shouldn't exist.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔥</div>
+                    <h3 class="card-title">Emberbound Progression</h3>
+                    <p class="card-text">
+                        Gear remembers you. As you grow stronger, the world entrusts you with pieces of itself. Every shard reclaimed restores a memory.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🏰</div>
+                    <h3 class="card-title">Personal Bases</h3>
+                    <p class="card-text">
+                        Carved downward, spiraling closer to the world's warmth. Prepare, upgrade, and descend into the depths from your own base.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💀</div>
+                    <h3 class="card-title">Prisoner Bosses</h3>
+                    <p class="card-text">
+                        Face entities bound to reality itself. They are warnings, not enemies. Each victory brings the Emberstone closer to coherence.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔄</div>
+                    <h3 class="card-title">Seasonal Cycles</h3>
+                    <p class="card-text">
+                        The world resets, but it remembers. Each season brings new revelations, hidden lore, and evolving challenges. The Emberstone watches as you iterate existence across cycles.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📜</div>
+                    <h3 class="card-title">Deep Lore</h3>
+                    <p class="card-text">
+                        Every season, every wipe, every choice matters. The world remembers, even when it resets. Your story shapes reality.
+                    </p>
+                </div>
+            </div>
+
+            <div class="image-showcase fade-in" style="margin-top: 3rem;">
+                <img src="base.jpg" alt="Personal Base">
+            </div>
+
+            <div class="image-showcase fade-in" style="margin-top: 3rem;">
+                <img src="boss.jpg" alt="Prisoner Boss">
+            </div>
+        </div>
+    </section>
+
+    <!-- Gamemodes Section -->
+    <section class="section" id="gamemodes">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">More Gamemodes Coming</h2>
+                <p class="section-subtitle">
+                    Dungeons are only the beginning. The world of EmberStone is vast and broken, with many paths through the fractured reality.
+                </p>
+            </div>
+
+            <div class="coming-soon-box fade-in">
+                <h3>What's Next?</h3>
+                <p>
+                    We're building something ambitious. More gamemodes are in development, each offering a unique way to explore the fractured world.
+                </p>
+                <p style="margin-top: 1rem; color: var(--accent-gold);">
+                    All will follow the lore. All will shape the future. All will be connected.
+                </p>
+            </div>
+
+            <div class="image-showcase fade-in">
+                <img src="future gamemode.jpg" alt="Future Gamemodes">
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section" style="background: rgba(15, 15, 15, 0.5);">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Server Features</h2>
+            </div>
+
+            <div class="stats-grid fade-in">
+                <div class="stat-card">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Dynamic Dungeons</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1.0</div>
+                    <div class="stat-label">Launch Version</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">🔥</div>
+                    <div class="stat-label">Lore-Driven</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">🔄</div>
+                    <div class="stat-label">Season</div>
+                </div>
+            </div>
+
+            <div class="card-grid fade-in" style="margin-top: 3rem;">
+                <div class="card">
+                    <div class="card-icon">🌍</div>
+                    <h3 class="card-title">Persistent World</h3>
+                    <p class="card-text">
+                        The lore runs deep. Every season, every wipe, every choice matters. The world remembers.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📖</div>
+                    <h3 class="card-title">Living Story</h3>
+                    <p class="card-text">
+                        Not all Emberbound agree on the future. Wars are fought over meaning. Your interpretation shapes reality.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎯</div>
+                    <h3 class="card-title">Player-Driven</h3>
+                    <p class="card-text">
+                        Your actions matter. The Emberstone watches and listens. Each Emberbound adds weight to its decision.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Section -->
+    <section class="section" id="join" style="background: linear-gradient(135deg, rgba(255, 106, 0, 0.05), rgba(184, 134, 11, 0.02));">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Join the Emberbound</h2>
+                <p class="section-subtitle" style="font-size: 1.3rem; max-width: 900px;">
+                    The server is currently under development, but the world is taking shape. 
+                    The Emberstone is waiting. The dungeons are forming. Reality is preparing to test itself.
+                </p>
+            </div>
+
+            <div class="coming-soon-box fade-in" style="max-width: 800px; margin: 3rem auto;">
+                <p style="font-size: 1.2rem; color: var(--accent-gold); font-style: italic; margin-bottom: 1rem;">
+                    "If the flame is reassembled, the world will not return to what it was. 
+                    It will become what it was always testing itself to be."
+                </p>
+            </div>
+
+            <div class="cta-group fade-in" style="margin-top: 3rem;">
+                <a href="#" class="btn btn-primary">Join Discord</a>
+                <a href="#" class="btn btn-secondary">Follow Updates</a>
+            </div>
+
+            <p style="text-align: center; color: #666; margin-top: 3rem; font-size: 0.95rem;">
+                Server IP: Coming Soon | Version: 1.21+ | Status: Development
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#features">Features</a>
+                <a href="#gamemodes">Gamemodes</a>
+                <a href="#join">Join</a>
+            </div>
+            <p class="footer-text">
+                EmberStone MC — Currently Under Development
+            </p>
+            <p class="footer-text" style="margin-top: 0.5rem; font-style: italic;">
+                "The Emberstone no longer decides alone. It is watching you."
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Fade in on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Create more floating particles dynamically
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 20 + 's';
+            particle.style.animationDuration = (15 + Math.random() * 15) + 's';
+            document.body.appendChild(particle);
+
+            setTimeout(() => {
+                particle.remove();
+            }, 30000);
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 4000);
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
