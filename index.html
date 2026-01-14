@@ -1013,7 +1013,8 @@
             </div>
         </div>
         <div class="cta-group">
-            <a href="#" class="btn btn-primary">Join Discord</a>
+            <a href="#" class="btn btn-primary">Join Server</a>
+            <a href="https://discord.gg/34kam5sdBm" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Join Discord</a>
             <a href="#features" class="btn btn-secondary">Explore Features</a>
         </div>
     </section>
@@ -1252,7 +1253,7 @@
                         Create stunning landscapes, build immersive structures, and design the diverse biomes of Orbis. Help us craft a world that players will remember.
                     </p>
                     <div style="margin-top: 1.5rem;">
-                        <a href="#" class="btn btn-secondary" style="padding: 0.75rem 1.5rem; font-size: 0.9rem;">Apply Now</a>
+                        <a href="https://discord.gg/34kam5sdBm" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 0.75rem 1.5rem; font-size: 0.9rem;">Apply Now</a>
                     </div>
                 </div>
                 <div class="card">
@@ -1262,7 +1263,7 @@
                         Develop the rich lore of the Emberstone, design game systems, and create engaging narratives that bring the world of Orbis to life.
                     </p>
                     <div style="margin-top: 1.5rem;">
-                        <a href="#" class="btn btn-secondary" style="padding: 0.75rem 1.5rem; font-size: 0.9rem;">Apply Now</a>
+                        <a href="https://discord.gg/34kam5sdBm" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 0.75rem 1.5rem; font-size: 0.9rem;">Apply Now</a>
                     </div>
                 </div>
                 <div class="card">
@@ -1272,7 +1273,7 @@
                         Build custom plugins and systems for Hytale. Help create unique gameplay mechanics, server features, and technical solutions.
                     </p>
                     <div style="margin-top: 1.5rem;">
-                        <a href="#" class="btn btn-secondary" style="padding: 0.75rem 1.5rem; font-size: 0.9rem;">Apply Now</a>
+                        <a href="https://discord.gg/34kam5sdBm" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 0.75rem 1.5rem; font-size: 0.9rem;">Apply Now</a>
                     </div>
                 </div>
                 <div class="card">
@@ -1282,7 +1283,7 @@
                         Create custom 3D models, textures, and assets for Hytale. Design unique items, structures, and visual elements that enhance the player experience.
                     </p>
                     <div style="margin-top: 1.5rem;">
-                        <a href="#" class="btn btn-secondary" style="padding: 0.75rem 1.5rem; font-size: 0.9rem;">Apply Now</a>
+                        <a href="https://discord.gg/34kam5sdBm" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 0.75rem 1.5rem; font-size: 0.9rem;">Apply Now</a>
                     </div>
                 </div>
                 <div class="card">
@@ -1292,7 +1293,7 @@
                         Help maintain a positive community environment, assist players, and ensure everyone has a great experience in Orbis. Be the friendly face that guides new adventurers.
                     </p>
                     <div style="margin-top: 1.5rem;">
-                        <a href="#" class="btn btn-secondary" style="padding: 0.75rem 1.5rem; font-size: 0.9rem;">Apply Now</a>
+                        <a href="https://discord.gg/34kam5sdBm" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 0.75rem 1.5rem; font-size: 0.9rem;">Apply Now</a>
                     </div>
                 </div>
                 <div class="card">
@@ -1302,7 +1303,7 @@
                         Have skills or ideas that don't fit the listed positions? We're always open to passionate individuals who want to contribute to EmberStone. If you have something unique to offer, we'd love to hear from you!
                     </p>
                     <div style="margin-top: 1.5rem;">
-                        <a href="#" class="btn btn-secondary" style="padding: 0.75rem 1.5rem; font-size: 0.9rem;">Submit Application</a>
+                        <a href="https://discord.gg/34kam5sdBm" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 0.75rem 1.5rem; font-size: 0.9rem;">Submit Application</a>
                     </div>
                 </div>
             </div>
@@ -1315,7 +1316,7 @@
                 </p>
                 <div class="cta-group" style="margin-top: 2rem;">
                     <a href="#" class="btn btn-primary">View All Positions</a>
-                    <a href="#" class="btn btn-secondary">Contact Us</a>
+                    <a href="https://discord.gg/34kam5sdBm" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Contact Us</a>
                 </div>
             </div>
         </div>
@@ -1346,9 +1347,19 @@
                 </p>
             </div>
 
+            <div class="server-address-container fade-in" style="max-width: 500px; margin: 3rem auto;">
+                <label class="server-address-label">Server Address</label>
+                <div class="server-address-input-group">
+                    <input type="text" class="server-address-input" id="server-address-bottom" value="join.emberstone.net" readonly>
+                    <button class="copy-btn" id="copy-btn-bottom">
+                        <span id="copy-icon-bottom">📋</span>
+                        <span id="copy-text-bottom">Copy</span>
+                    </button>
+                </div>
+            </div>
+
             <div class="cta-group fade-in" style="margin-top: 3rem;">
-                <a href="#" class="btn btn-primary">Join Server</a>
-                <a href="#" class="btn btn-secondary">Join Discord</a>
+                <a href="https://discord.gg/34kam5sdBm" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Join Discord</a>
             </div>
 
             <p style="text-align: center; color: #666; margin-top: 3rem; font-size: 0.95rem;">
@@ -1581,32 +1592,46 @@
         });
 
         // Copy to Clipboard Functionality
-        const copyBtn = document.getElementById('copy-btn');
-        const serverAddressInput = document.getElementById('server-address');
-        const copyIcon = document.getElementById('copy-icon');
-        const copyText = document.getElementById('copy-text');
+        function setupCopyButton(copyBtnId, inputId, iconId, textId) {
+            const copyBtn = document.getElementById(copyBtnId);
+            const serverAddressInput = document.getElementById(inputId);
+            const copyIcon = document.getElementById(iconId);
+            const copyText = document.getElementById(textId);
 
-        if (copyBtn && serverAddressInput) {
-            copyBtn.addEventListener('click', function() {
-                // Select the text
-                serverAddressInput.select();
-                serverAddressInput.setSelectionRange(0, 99999); // For mobile devices
+            if (copyBtn && serverAddressInput) {
+                copyBtn.addEventListener('click', function() {
+                    // Select the text
+                    serverAddressInput.select();
+                    serverAddressInput.setSelectionRange(0, 99999); // For mobile devices
 
-                try {
-                    // Copy to clipboard
-                    navigator.clipboard.writeText(serverAddressInput.value).then(function() {
-                        // Success feedback
-                        copyBtn.classList.add('copied');
-                        copyIcon.textContent = '✓';
-                        copyText.textContent = 'Copied!';
-                        
-                        // Reset after 2 seconds
-                        setTimeout(function() {
-                            copyBtn.classList.remove('copied');
-                            copyIcon.textContent = '📋';
-                            copyText.textContent = 'Copy';
-                        }, 2000);
-                    }).catch(function(err) {
+                    try {
+                        // Copy to clipboard
+                        navigator.clipboard.writeText(serverAddressInput.value).then(function() {
+                            // Success feedback
+                            copyBtn.classList.add('copied');
+                            copyIcon.textContent = '✓';
+                            copyText.textContent = 'Copied!';
+                            
+                            // Reset after 2 seconds
+                            setTimeout(function() {
+                                copyBtn.classList.remove('copied');
+                                copyIcon.textContent = '📋';
+                                copyText.textContent = 'Copy';
+                            }, 2000);
+                        }).catch(function(err) {
+                            // Fallback for older browsers
+                            document.execCommand('copy');
+                            copyBtn.classList.add('copied');
+                            copyIcon.textContent = '✓';
+                            copyText.textContent = 'Copied!';
+                            
+                            setTimeout(function() {
+                                copyBtn.classList.remove('copied');
+                                copyIcon.textContent = '📋';
+                                copyText.textContent = 'Copy';
+                            }, 2000);
+                        });
+                    } catch (err) {
                         // Fallback for older browsers
                         document.execCommand('copy');
                         copyBtn.classList.add('copied');
@@ -1618,27 +1643,19 @@
                             copyIcon.textContent = '📋';
                             copyText.textContent = 'Copy';
                         }, 2000);
-                    });
-                } catch (err) {
-                    // Fallback for older browsers
-                    document.execCommand('copy');
-                    copyBtn.classList.add('copied');
-                    copyIcon.textContent = '✓';
-                    copyText.textContent = 'Copied!';
-                    
-                    setTimeout(function() {
-                        copyBtn.classList.remove('copied');
-                        copyIcon.textContent = '📋';
-                        copyText.textContent = 'Copy';
-                    }, 2000);
-                }
-            });
+                    }
+                });
 
-            // Also allow clicking on the input to select/copy
-            serverAddressInput.addEventListener('click', function() {
-                this.select();
-            });
+                // Also allow clicking on the input to select/copy
+                serverAddressInput.addEventListener('click', function() {
+                    this.select();
+                });
+            }
         }
+
+        // Setup copy buttons for both locations
+        setupCopyButton('copy-btn', 'server-address', 'copy-icon', 'copy-text');
+        setupCopyButton('copy-btn-bottom', 'server-address-bottom', 'copy-icon-bottom', 'copy-text-bottom');
 
         // Lore Book Modal
         const loreBtn = document.getElementById('lore-btn');
@@ -1734,5 +1751,3 @@
     </script>
 </body>
 </html>
-
-
