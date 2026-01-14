@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EmberStone MC — Minecraft Server</title>
+    <title>EmberStone — Hytale Survival Server</title>
     <style>
         * {
             margin: 0;
@@ -167,220 +167,6 @@
             margin: 0 auto 3rem;
             font-weight: 300;
             line-height: 1.8;
-        }
-
-        /* Audio Player - Fixed Bottom Right */
-        .audio-player-container {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 200px;
-            z-index: 1000;
-        }
-
-        .audio-player {
-            width: 100%;
-            background: rgba(15, 15, 15, 0.98);
-            border: 1px solid rgba(255, 140, 66, 0.2);
-            border-radius: 8px;
-            padding: 0.75rem 1rem;
-            backdrop-filter: blur(20px);
-            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.8);
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            box-sizing: border-box;
-        }
-
-        .audio-player-controls {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            width: 100%;
-        }
-
-        .audio-player-title {
-            color: var(--accent-gold);
-            font-size: 0.7rem;
-            font-weight: 400;
-            margin-bottom: 0.5rem;
-            text-align: center;
-            letter-spacing: 0.05em;
-            opacity: 0.8;
-        }
-
-        .audio-player audio {
-            display: none;
-        }
-
-        .play-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--primary-orange);
-            border: none;
-            color: white;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            transition: all 0.3s;
-            flex-shrink: 0;
-            padding: 0;
-            line-height: 1;
-            text-align: center;
-        }
-
-        .play-btn:hover {
-            background: var(--secondary-orange);
-            transform: scale(1.1);
-        }
-
-        .play-btn:active {
-            transform: scale(0.95);
-        }
-
-        .volume-control {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            min-width: 0;
-        }
-
-        .volume-icon {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            width: 18px;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .volume-slider {
-            flex: 1;
-            min-width: 0;
-            height: 4px;
-            background: rgba(255, 140, 66, 0.2);
-            border-radius: 2px;
-            outline: none;
-            -webkit-appearance: none;
-            appearance: none;
-        }
-
-        .volume-slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: var(--primary-orange);
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .volume-slider::-webkit-slider-thumb:hover {
-            background: var(--secondary-orange);
-            transform: scale(1.2);
-        }
-
-        .volume-slider::-moz-range-thumb {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: var(--primary-orange);
-            cursor: pointer;
-            border: none;
-            transition: all 0.2s;
-        }
-
-        .volume-slider::-moz-range-thumb:hover {
-            background: var(--secondary-orange);
-            transform: scale(1.2);
-        }
-
-        /* Audio Player Prompt */
-        .audio-prompt {
-            position: fixed;
-            bottom: 7rem;
-            right: 2rem;
-            background: rgba(255, 106, 0, 0.9);
-            color: white;
-            padding: 0.75rem 1rem;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            z-index: 1001;
-            box-shadow: 0 4px 20px rgba(255, 106, 0, 0.4);
-            animation: promptFadeIn 0.5s ease-out, promptFadeOut 0.5s ease-in 4.5s forwards;
-            pointer-events: none;
-            max-width: 200px;
-        }
-
-        .audio-prompt::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            right: 2rem;
-            width: 0;
-            height: 0;
-            border-left: 8px solid transparent;
-            border-right: 8px solid transparent;
-            border-top: 8px solid rgba(255, 106, 0, 0.9);
-        }
-
-        @keyframes promptFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes promptFadeOut {
-            from {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            to {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-        }
-
-        .audio-prompt.hidden {
-            display: none;
-        }
-
-        @media (max-width: 768px) {
-            .audio-player-container {
-                width: 180px;
-                bottom: 1rem;
-                right: 1rem;
-            }
-
-            .audio-player {
-                padding: 0.6rem 0.75rem;
-                gap: 0.75rem;
-            }
-
-            .play-btn {
-                width: 36px;
-                height: 36px;
-                font-size: 1rem;
-            }
-
-            .audio-prompt {
-                bottom: 6rem;
-                right: 1rem;
-                max-width: 160px;
-                font-size: 0.75rem;
-                padding: 0.6rem 0.8rem;
-            }
         }
 
         .status-badge {
@@ -696,6 +482,104 @@
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* Copy to Clipboard Component */
+        .server-address-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 0;
+        }
+
+        .server-address-label {
+            display: block;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .server-address-input-group {
+            display: flex;
+            align-items: center;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .server-address-input-group:hover {
+            border-color: rgba(255, 106, 0, 0.4);
+            box-shadow: 0 4px 12px rgba(255, 106, 0, 0.1);
+        }
+
+        .server-address-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            padding: 0.75rem 1rem;
+            font-family: 'Courier New', monospace;
+            outline: none;
+            text-align: center;
+        }
+
+        .server-address-input::selection {
+            background: rgba(255, 106, 0, 0.3);
+        }
+
+        .copy-btn {
+            background: var(--primary-orange);
+            border: none;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .copy-btn:hover {
+            background: var(--secondary-orange);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(255, 106, 0, 0.3);
+        }
+
+        .copy-btn:active {
+            transform: translateY(0);
+        }
+
+        .copy-btn.copied {
+            background: #4ade80;
+        }
+
+        .copy-btn.copied:hover {
+            background: #22c55e;
+        }
+
+        @media (max-width: 768px) {
+            .server-address-input-group {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .server-address-input {
+                width: 100%;
+                text-align: center;
+            }
+
+            .copy-btn {
+                width: 100%;
+                justify-content: center;
+            }
         }
 
         /* Lore Book Modal */
@@ -1102,46 +986,34 @@
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#features">Features</a></li>
-                <li><a href="#gamemodes">Gamemodes</a></li>
+                <li><a href="#survival">Survival</a></li>
+                <li><a href="#hiring">Hiring</a></li>
                 <li><a href="#join">Join</a></li>
                 <li><a href="#" id="lore-btn" class="lore-link">📖 Lore</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Audio Player - Fixed Bottom Right -->
-    <div class="audio-player-container">
-        <div class="audio-prompt" id="audio-prompt">Click anywhere to start the music</div>
-        <div class="audio-player">
-            <div class="audio-player-title">Lore Music</div>
-            <audio id="lore-audio" preload="auto">
-                <source src="EMBERSTONE_ THE WORLD THAT BREATHES FIRE.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-            <div class="audio-player-controls">
-                <button class="play-btn" id="play-btn">▶</button>
-                <div class="volume-control">
-                    <span class="volume-icon">🔊</span>
-                    <input type="range" class="volume-slider" id="volume-slider" min="0" max="100" value="20">
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Hero Section -->
     <section class="hero">
         <img src="logo.png" alt="EmberStone Logo" class="hero-logo">
-        <p class="hero-subtitle">Minecraft Server</p>
+        <p class="hero-subtitle">Hytale Survival Server</p>
         <p class="hero-tagline">
-            Enter a world where fire remembers, reality fractures, and every choice shapes the future. 
-            Descend into dungeons that are failures that never finished happening. Become Emberbound.
+            Welcome to Orbis, where ancient magic flows through every stone and the world remembers those who shape it. 
+            Build your legacy in a realm where survival is only the beginning. Discover the secrets of the Emberstone and become part of a story that spans generations.
         </p>
-        <div class="status-badge">
-            <span>⚙️</span>
-            <span>SERVER UNDER DEVELOPMENT — COMING SOON</span>
+        <div class="server-address-container" style="max-width: 500px; margin: 2rem auto;">
+            <label class="server-address-label" style="margin-bottom: 0.5rem;">🟢 Server Online — Join Now</label>
+            <div class="server-address-input-group">
+                <input type="text" class="server-address-input" id="server-address" value="join.emberstone.net" readonly>
+                <button class="copy-btn" id="copy-btn">
+                    <span id="copy-icon">📋</span>
+                    <span id="copy-text">Copy</span>
+                </button>
+            </div>
         </div>
         <div class="cta-group">
-            <a href="#join" class="btn btn-primary">Join the Waitlist</a>
+            <a href="#" class="btn btn-primary">Join Discord</a>
             <a href="#features" class="btn btn-secondary">Explore Features</a>
         </div>
     </section>
@@ -1149,7 +1021,7 @@
     <!-- Hero Image -->
     <div class="container">
         <div class="image-showcase fade-in">
-            <img src="hero.jpg" alt="EmberStone World">
+            <img src="hero.jpg" alt="Survival World of Orbis">
         </div>
     </div>
 
@@ -1159,29 +1031,29 @@
             <div class="section-header fade-in">
                 <h2 class="section-title">What is EmberStone?</h2>
                 <p class="section-subtitle">
-                    A lore-driven Minecraft server set in a fractured world where the Emberstone Prime shattered reality itself
+                    A lore-driven Hytale survival server set in the world of Orbis, where ancient powers shape reality itself.
+                    <span class="highlight-text">Currently online as Survival Mode — evolving into an RPG gamemode!</span>
                 </p>
             </div>
 
             <div class="feature-showcase fade-in">
                 <div class="feature-content">
-                    <h3>The Fractured World</h3>
+                    <h3>The World of Orbis</h3>
                     <p>
-                        When the Great Reforging failed, the world didn't end—it adapted. Cities collapsed into labyrinths. 
-                        Wardens became prisoners bound to unstable reality. And you, the <span class="highlight-text">Emberbound</span>, 
-                        feel the world differently.
+                        In the vast realm of Orbis, where magic flows through every biome and ancient ruins whisper forgotten tales, 
+                        the <span class="highlight-text">Emberstone</span> stands as a testament to a power that predates memory itself.
                     </p>
                     <p>
-                        Heat never leaves your bones. Ancient mechanisms recognize you. 
-                        Gear doesn't obey you—it remembers you.
+                        This is not just another survival server. This is a world where your choices echo through time. 
+                        Every structure you build, every resource you gather, every alliance you forge becomes part of Orbis's living story.
                     </p>
                     <p>
-                        This is not just another server. This is a world that watches, listens, and responds. 
-                        Every dungeon cleared, every shard reclaimed, every choice made adds weight to the Emberstone's decision.
+                        The Emberstone watches, listens, and responds. As you explore the diverse zones, from lush forests to treacherous 
+                        dungeons, you'll discover that survival here means more than staying alive—it means becoming part of something greater.
                     </p>
                 </div>
                 <div class="image-showcase">
-                    <img src="Emberbound.jpg" alt="Emberbound Character">
+                    <img src="Emberbound.jpg" alt="Survival Base in Orbis">
                 </div>
             </div>
         </div>
@@ -1191,93 +1063,121 @@
     <section class="section" id="features" style="background: rgba(15, 15, 15, 0.5);">
         <div class="container">
             <div class="section-header fade-in">
-                <h2 class="section-title">First Gamemode: Dungeons</h2>
+                <h2 class="section-title">Survival Server Features</h2>
                 <p class="section-subtitle">
-                    <span class="highlight-text">Dungeons are not places. They are failures that never finished happening.</span>
+                    Experience Hytale survival like never before in a world rich with lore and adventure. 
+                    <span class="highlight-text">Currently in Survival Mode — RPG gamemode coming soon!</span>
                 </p>
-            </div>
-
-            <div class="image-showcase fade-in">
-                <img src="dungeon1.jpg" alt="Dungeon Interior">
             </div>
 
             <div class="card-grid fade-in">
                 <div class="card">
+                    <div class="card-icon">🌍</div>
+                    <h3 class="card-title">Procedural World</h3>
+                    <p class="card-text">
+                        Explore the diverse biomes of Orbis. Each zone offers unique resources, challenges, and secrets waiting to be discovered.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🏗️</div>
+                    <h3 class="card-title">Building & Crafting</h3>
+                    <p class="card-text">
+                        Build your base, craft powerful gear, and create a home that stands the test of time. Your structures become part of Orbis's history.
+                    </p>
+                </div>
+                <div class="card">
                     <div class="card-icon">⚔️</div>
-                    <h3 class="card-title">Dynamic Instances</h3>
+                    <h3 class="card-title">Combat & Exploration</h3>
                     <p class="card-text">
-                        Every dungeon run is unique. No two journeys are the same. Experience procedurally generated challenges in worlds that shouldn't exist.
+                        Face the creatures of Orbis, explore the diverse biomes, and test your survival skills against the challenges that await in every corner.
                     </p>
                 </div>
                 <div class="card">
-                    <div class="card-icon">🔥</div>
-                    <h3 class="card-title">Emberbound Progression</h3>
+                    <div class="card-icon">🤝</div>
+                    <h3 class="card-title">Community Survival</h3>
                     <p class="card-text">
-                        Gear remembers you. As you grow stronger, the world entrusts you with pieces of itself. Every shard reclaimed restores a memory.
-                    </p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🏰</div>
-                    <h3 class="card-title">Personal Bases</h3>
-                    <p class="card-text">
-                        Carved downward, spiraling closer to the world's warmth. Prepare, upgrade, and descend into the depths from your own base.
-                    </p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">💀</div>
-                    <h3 class="card-title">Prisoner Bosses</h3>
-                    <p class="card-text">
-                        Face entities bound to reality itself. They are warnings, not enemies. Each victory brings the Emberstone closer to coherence.
-                    </p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🔄</div>
-                    <h3 class="card-title">Seasonal Cycles</h3>
-                    <p class="card-text">
-                        The world resets, but it remembers. Each season brings new revelations, hidden lore, and evolving challenges. The Emberstone watches as you iterate existence across cycles.
+                        Join forces with other survivors. Form alliances, trade resources, and build communities that thrive together in Orbis.
                     </p>
                 </div>
                 <div class="card">
                     <div class="card-icon">📜</div>
-                    <h3 class="card-title">Deep Lore</h3>
+                    <h3 class="card-title">Living Lore</h3>
                     <p class="card-text">
-                        Every season, every wipe, every choice matters. The world remembers, even when it resets. Your story shapes reality.
+                        Discover the story of the Emberstone through exploration. Every discovery adds to your understanding of Orbis's ancient past.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔄</div>
+                    <h3 class="card-title">Evolving World</h3>
+                    <p class="card-text">
+                        The world of Orbis grows and changes. New content, events, and challenges ensure that every play session brings something new.
                     </p>
                 </div>
             </div>
 
             <div class="image-showcase fade-in" style="margin-top: 3rem;">
-                <img src="base.jpg" alt="Personal Base">
-            </div>
-
-            <div class="image-showcase fade-in" style="margin-top: 3rem;">
-                <img src="boss.jpg" alt="Prisoner Boss">
+                <img src="boss.jpg" alt="Survival Crafting and Building">
             </div>
         </div>
     </section>
 
-    <!-- Gamemodes Section -->
-    <section class="section" id="gamemodes">
+    <!-- Survival Section -->
+    <section class="section" id="survival">
         <div class="container">
             <div class="section-header fade-in">
-                <h2 class="section-title">More Gamemodes Coming</h2>
+                <h2 class="section-title">Pure Survival Experience</h2>
                 <p class="section-subtitle">
-                    Dungeons are only the beginning. The world of EmberStone is vast and broken, with many paths through the fractured reality.
+                    Experience Hytale survival in its purest form, enhanced by rich lore and a vibrant community. 
+                    <span class="highlight-text">Currently live as Survival — evolving into an RPG gamemode in the future!</span>
                 </p>
             </div>
 
-            <div class="coming-soon-box fade-in">
-                <h3>What's Next?</h3>
-                <p>
-                    We're building something ambitious. More gamemodes are in development, each offering a unique way to explore the fractured world.
-                </p>
-                <p style="margin-top: 1rem; color: var(--accent-gold);">
-                    All will follow the lore. All will shape the future. All will be connected.
-                </p>
+            <div class="feature-showcase fade-in">
+                <div class="image-showcase">
+                    <img src="future%20gamemode.jpg" alt="Survival Gameplay - Future RPG Mode Preview">
+                </div>
+                <div class="feature-content">
+                    <h3>What Makes Our Survival Special?</h3>
+                    <p>
+                        At its core, EmberStone is currently a pure survival server. Gather resources, build shelters, craft tools, and explore the vast world of Orbis.
+                    </p>
+                    <p>
+                        We've woven the ancient lore of the Emberstone throughout your journey. Discover hidden locations, uncover forgotten stories, 
+                        and feel the weight of history as you build your legacy.
+                    </p>
+                    <p>
+                        <span class="highlight-text">No pay-to-win. No overpowered kits.</span> Just pure survival, enhanced by a world that feels alive 
+                        and a community that shapes its own destiny.
+                    </p>
+                    <p style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255, 140, 66, 0.3);">
+                        <span class="highlight-text">Future Plans:</span> The server will evolve into a full RPG-styled gamemode with quests, classes, and deeper progression systems. 
+                        For now, enjoy the pure survival experience and help shape the world that will become the foundation for our RPG adventure!
+                    </p>
+                </div>
             </div>
 
-            <div class="image-showcase fade-in">
-                <img src="future gamemode.jpg" alt="Future Gamemodes">
+            <div class="card-grid fade-in" style="margin-top: 3rem;">
+                <div class="card">
+                    <div class="card-icon">⛏️</div>
+                    <h3 class="card-title">Resource Gathering</h3>
+                    <p class="card-text">
+                        Mine deep into Orbis's diverse biomes. Each zone offers unique materials and challenges for resource gathering.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🛠️</div>
+                    <h3 class="card-title">Crafting System</h3>
+                    <p class="card-text">
+                        Master Hytale's comprehensive crafting system. Create everything from basic tools to powerful equipment.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🏠</div>
+                    <h3 class="card-title">Base Building</h3>
+                    <p class="card-text">
+                        Build your home anywhere in Orbis. From simple shelters to grand fortresses, your creativity is the only limit.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -1292,19 +1192,19 @@
             <div class="stats-grid fade-in">
                 <div class="stat-card">
                     <div class="stat-number">∞</div>
-                    <div class="stat-label">Dynamic Dungeons</div>
+                    <div class="stat-label">Procedural Zones</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">1.0</div>
-                    <div class="stat-label">Launch Version</div>
+                    <div class="stat-number">🟢</div>
+                    <div class="stat-label">Online Now</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">🔥</div>
-                    <div class="stat-label">Lore-Driven</div>
+                    <div class="stat-number">🎮</div>
+                    <div class="stat-label">Survival Mode</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">🔄</div>
-                    <div class="stat-label">Season</div>
+                    <div class="stat-number">⚔️</div>
+                    <div class="stat-label">RPG Coming</div>
                 </div>
             </div>
 
@@ -1313,22 +1213,109 @@
                     <div class="card-icon">🌍</div>
                     <h3 class="card-title">Persistent World</h3>
                     <p class="card-text">
-                        The lore runs deep. Every season, every wipe, every choice matters. The world remembers.
+                        Your builds, your progress, your story—all persist in the world of Orbis. This is your home, your legacy.
                     </p>
                 </div>
                 <div class="card">
                     <div class="card-icon">📖</div>
                     <h3 class="card-title">Living Story</h3>
                     <p class="card-text">
-                        Not all Emberbound agree on the future. Wars are fought over meaning. Your interpretation shapes reality.
+                        The lore of the Emberstone unfolds through exploration. Discover ancient ruins, hidden texts, and forgotten secrets.
                     </p>
                 </div>
                 <div class="card">
                     <div class="card-icon">🎯</div>
                     <h3 class="card-title">Player-Driven</h3>
                     <p class="card-text">
-                        Your actions matter. The Emberstone watches and listens. Each Emberbound adds weight to its decision.
+                        Your actions shape the server. Build communities, create trade routes, and become part of Orbis's evolving story.
                     </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hiring Section -->
+    <section class="section" id="hiring" style="background: rgba(15, 15, 15, 0.5);">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">We're Hiring!</h2>
+                <p class="section-subtitle">
+                    Join our team and help shape the world of Orbis. We're looking for talented individuals to bring EmberStone to life.
+                </p>
+            </div>
+
+            <div class="card-grid fade-in">
+                <div class="card">
+                    <div class="card-icon">🌍</div>
+                    <h3 class="card-title">World Designer / Builder</h3>
+                    <p class="card-text">
+                        Create stunning landscapes, build immersive structures, and design the diverse biomes of Orbis. Help us craft a world that players will remember.
+                    </p>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="#" class="btn btn-secondary" style="padding: 0.75rem 1.5rem; font-size: 0.9rem;">Apply Now</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📖</div>
+                    <h3 class="card-title">Lore & Systems Designer</h3>
+                    <p class="card-text">
+                        Develop the rich lore of the Emberstone, design game systems, and create engaging narratives that bring the world of Orbis to life.
+                    </p>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="#" class="btn btn-secondary" style="padding: 0.75rem 1.5rem; font-size: 0.9rem;">Apply Now</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💻</div>
+                    <h3 class="card-title">Plugin Developer</h3>
+                    <p class="card-text">
+                        Build custom plugins and systems for Hytale. Help create unique gameplay mechanics, server features, and technical solutions.
+                    </p>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="#" class="btn btn-secondary" style="padding: 0.75rem 1.5rem; font-size: 0.9rem;">Apply Now</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎨</div>
+                    <h3 class="card-title">3D Asset Artist</h3>
+                    <p class="card-text">
+                        Create custom 3D models, textures, and assets for Hytale. Design unique items, structures, and visual elements that enhance the player experience.
+                    </p>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="#" class="btn btn-secondary" style="padding: 0.75rem 1.5rem; font-size: 0.9rem;">Apply Now</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🛡️</div>
+                    <h3 class="card-title">Moderator / Supporter</h3>
+                    <p class="card-text">
+                        Help maintain a positive community environment, assist players, and ensure everyone has a great experience in Orbis. Be the friendly face that guides new adventurers.
+                    </p>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="#" class="btn btn-secondary" style="padding: 0.75rem 1.5rem; font-size: 0.9rem;">Apply Now</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💡</div>
+                    <h3 class="card-title">Open Application</h3>
+                    <p class="card-text">
+                        Have skills or ideas that don't fit the listed positions? We're always open to passionate individuals who want to contribute to EmberStone. If you have something unique to offer, we'd love to hear from you!
+                    </p>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="#" class="btn btn-secondary" style="padding: 0.75rem 1.5rem; font-size: 0.9rem;">Submit Application</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="coming-soon-box fade-in" style="max-width: 900px; margin: 3rem auto;">
+                <h3 style="color: var(--primary-orange); margin-bottom: 1rem;">Interested in Joining?</h3>
+                <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                    We're building something special, and we need passionate creators to help us bring the vision of EmberStone to life. 
+                    Whether you're a builder, writer, developer, or artist, we'd love to hear from you!
+                </p>
+                <div class="cta-group" style="margin-top: 2rem;">
+                    <a href="#" class="btn btn-primary">View All Positions</a>
+                    <a href="#" class="btn btn-secondary">Contact Us</a>
                 </div>
             </div>
         </div>
@@ -1338,27 +1325,34 @@
     <section class="section" id="join" style="background: linear-gradient(135deg, rgba(255, 106, 0, 0.05), rgba(184, 134, 11, 0.02));">
         <div class="container">
             <div class="section-header fade-in">
-                <h2 class="section-title">Join the Emberbound</h2>
+                <h2 class="section-title">Join the Adventure</h2>
                 <p class="section-subtitle" style="font-size: 1.3rem; max-width: 900px;">
-                    The server is currently under development, but the world is taking shape. 
-                    The Emberstone is waiting. The dungeons are forming. Reality is preparing to test itself.
+                    The server is <span class="highlight-text">online now</span> in Survival Mode! Join us as we build the foundation for an epic RPG adventure. 
+                    The world of Orbis awaits. The Emberstone watches. Your survival story begins here.
                 </p>
             </div>
 
-            <div class="coming-soon-box fade-in" style="max-width: 800px; margin: 3rem auto;">
-                <p style="font-size: 1.2rem; color: var(--accent-gold); font-style: italic; margin-bottom: 1rem;">
-                    "If the flame is reassembled, the world will not return to what it was. 
-                    It will become what it was always testing itself to be."
+            <div class="coming-soon-box fade-in" style="max-width: 800px; margin: 3rem auto; border-color: rgba(0, 255, 0, 0.3);">
+                <h3 style="color: #4ade80; margin-bottom: 1rem;">🟢 Server Online - Survival Mode Active</h3>
+                <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                    Join us now for pure survival gameplay! The server is live and ready for players.
+                </p>
+                <p style="font-size: 1rem; color: var(--accent-gold); font-style: italic; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(184, 134, 11, 0.3);">
+                    "In Orbis, every stone remembers. Every tree whispers. Every choice echoes. 
+                    Welcome to a world where survival is only the beginning of your story."
+                </p>
+                <p style="font-size: 0.95rem; color: var(--text-secondary); margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(255, 140, 66, 0.2);">
+                    <span class="highlight-text">Coming Soon:</span> Full RPG gamemode with quests, classes, and epic progression!
                 </p>
             </div>
 
             <div class="cta-group fade-in" style="margin-top: 3rem;">
-                <a href="#" class="btn btn-primary">Join Discord</a>
-                <a href="#" class="btn btn-secondary">Follow Updates</a>
+                <a href="#" class="btn btn-primary">Join Server</a>
+                <a href="#" class="btn btn-secondary">Join Discord</a>
             </div>
 
             <p style="text-align: center; color: #666; margin-top: 3rem; font-size: 0.95rem;">
-                Server IP: Coming Soon | Version: 1.21+ | Status: Development
+                Server: join.emberstone.net | Game: Hytale | Status: <span style="color: #4ade80;">Online - Survival Mode</span>
             </p>
         </div>
     </section>
@@ -1369,14 +1363,15 @@
             <div class="footer-links">
                 <a href="#about">About</a>
                 <a href="#features">Features</a>
-                <a href="#gamemodes">Gamemodes</a>
+                <a href="#survival">Survival</a>
+                <a href="#hiring">Hiring</a>
                 <a href="#join">Join</a>
             </div>
             <p class="footer-text">
-                EmberStone MC — Currently Under Development
+                EmberStone — Hytale Survival Server — <span style="color: #4ade80;">Online Now</span> | RPG Mode Coming Soon
             </p>
             <p class="footer-text" style="margin-top: 0.5rem; font-style: italic;">
-                "The Emberstone no longer decides alone. It is watching you."
+                "In Orbis, your story begins where survival ends."
             </p>
         </div>
     </footer>
@@ -1391,25 +1386,24 @@
                     <div class="book-page-spread active" data-page="0">
                         <div class="book-page left">
                             <div class="book-content">
-                                <p class="fragment-title">Fragment I</p>
-                                <p class="quote">"Fire does not destroy.<br>Fire reveals what was never strong enough to remain."</p>
-                                <p>Before the world had a name, it existed as heat without direction. Not flame, not light — but pressure. A need to become something else.</p>
-                                <p>When the Emberstone awakened, it did not speak. It strained.</p>
-                                <p>From that strain came land. From land came breath. From breath came thought.</p>
-                                <p>The first mountains were not raised — they were cooled. The first seas were not poured — they were condensed. The first sky was not lifted — it was released.</p>
-                                <p>The Emberstone Prime remained at the world's heart, unseen, unheard, but endlessly burning. It did not demand worship. It did not guide hands.</p>
-                                <p class="emphasis">It waited.</p>
+                                <p class="fragment-title">Fragment I — The Birth of Orbis</p>
+                                <p class="quote">"Before the first stone was laid,<br>before the first tree grew,<br>there was only the Emberstone."</p>
+                                <p>In the beginning, Orbis was formless. Not empty, but unshaped. A realm of potential waiting for direction.</p>
+                                <p>When the Emberstone awakened, it did not create—it remembered. It remembered what a world should be, and from that memory, Orbis took form.</p>
+                                <p>The first biomes were not built—they were dreamed. The first creatures were not made—they were imagined into being. The first magic was not cast—it simply was.</p>
+                                <p>The Emberstone remained at the world's heart, unseen by most, but felt by all. It did not demand worship. It did not guide hands.</p>
+                                <p class="emphasis">It simply remembered, and in remembering, it sustained.</p>
                             </div>
                         </div>
                         <div class="book-binding"></div>
                         <div class="book-page right">
                             <div class="book-content">
-                                <p class="fragment-title">Fragment II — On the Nature of Flame</p>
-                                <p>The Forgeborn did not discover the Emberstone. They discovered that fire remembers.</p>
-                                <p>When metal was forged with embers taken from deep places, the blade carried echoes — of heat, of pressure, of purpose. When armor was tempered in ember-furnaces, it resisted not because it was strong, but because it refused to break.</p>
-                                <p>The Forgeborn learned to bind memory into matter.</p>
-                                <p>Cities became stories. Weapons became arguments. Architecture became belief.</p>
-                                <p>And belief hardened into doctrine.</p>
+                                <p class="fragment-title">Fragment II — The First Settlers</p>
+                                <p>The first mortals to arrive in Orbis did not discover it—they were invited.</p>
+                                <p>Drawn by whispers on the wind, by dreams of a land where magic flowed like water, they came from realms beyond understanding.</p>
+                                <p>They found a world already rich with life, already shaped by forces they could not comprehend. But they adapted. They learned.</p>
+                                <p>They discovered that in Orbis, intention shapes reality. That building was not just construction—it was conversation with the world itself.</p>
+                                <p>And so the first settlements rose, not as conquest, but as collaboration. The Emberstone watched, and it remembered their names.</p>
                             </div>
                         </div>
                     </div>
@@ -1418,23 +1412,23 @@
                     <div class="book-page-spread" data-page="1">
                         <div class="book-page left">
                             <div class="book-content">
-                                <p class="fragment-title">Fragment III — The First Cities</p>
-                                <p>The earliest cities were not built upward. They were carved downward, spiraling closer to the world's warmth. Every level was hotter than the last. Every descent was considered a pilgrimage.</p>
-                                <p>Children were taught that to climb was to flee, but to descend was to learn.</p>
-                                <p>At the lowest halls stood the Listening Forges, where ember-veins sang softly through stone. Only those who listened long enough heard patterns in the sound — rhythms that felt uncomfortably like speech.</p>
-                                <p>Some turned back. Others stayed too long.</p>
+                                <p class="fragment-title">Fragment III — The Age of Discovery</p>
+                                <p>As mortals spread across Orbis, they discovered that the world was far vaster than they imagined.</p>
+                                <p>Each biome held its own secrets. Each zone whispered different stories. The forests remembered different things than the deserts. The mountains spoke in different tongues than the oceans.</p>
+                                <p>Explorers became cartographers. Cartographers became scholars. Scholars became keepers of knowledge.</p>
+                                <p>They learned that Orbis was not static. That the world itself was alive, growing, changing, remembering.</p>
+                                <p>And they learned that the Emberstone was not a thing, but a process. A constant act of remembering that kept the world whole.</p>
                             </div>
                         </div>
                         <div class="book-binding"></div>
                         <div class="book-page right">
                             <div class="book-content">
-                                <p class="fragment-title">Fragment IV — The Ember Covenant</p>
-                                <p>The Covenant did not begin as tyrants. They were caretakers.</p>
-                                <p>Forge-lords who regulated ember extraction. Scholars who charted safe thresholds. Wardens who sealed unstable zones and posted warnings written in heat-resistant script.</p>
-                                <p>For centuries, it worked. The world prospered, not because it was controlled, but because it was maintained.</p>
-                                <p>Then came the question no one could answer:</p>
-                                <p class="quote">"If the Emberstone sustains the world…<br>what sustains the Emberstone?"</p>
-                                <p>No record shows who first proposed reforging it. Only that once the idea existed, it refused to die.</p>
+                                <p class="fragment-title">Fragment IV — The Great Fracture</p>
+                                <p>Then came the day when someone asked a question that should never have been asked:</p>
+                                <p class="quote">"If the Emberstone remembers everything...<br>what happens when it forgets?"</p>
+                                <p>They tried to force an answer. They built machines to extract memory. They created rituals to command forgetting.</p>
+                                <p>They did not understand that memory cannot be commanded. That forgetting cannot be forced.</p>
+                                <p>When they tried, the Emberstone did not break. It fractured. And in fracturing, it remembered something new: what it meant to be incomplete.</p>
                             </div>
                         </div>
                     </div>
@@ -1443,23 +1437,23 @@
                     <div class="book-page-spread" data-page="2">
                         <div class="book-page left">
                             <div class="book-content">
-                                <p class="fragment-title">Fragment V — Early Experiments</p>
-                                <p>The first reforgings were small. A forest where decay ceased. A city where illness vanished. A river that flowed backward, returning what it carried.</p>
-                                <p>The world did not resist. It adapted.</p>
-                                <p>This emboldened them.</p>
-                                <p>Ember conduits were extended across continents. The Listening Forges were converted into Command Forges. Ember-shards were embedded into living guardians, chosen volunteers who believed eternity in service was the highest honor.</p>
-                                <p>They called them Wardens. None of them were built to question.</p>
+                                <p class="fragment-title">Fragment V — The Scattered Shards</p>
+                                <p>When the Emberstone fractured, it did not shatter into pieces. It scattered into echoes.</p>
+                                <p>Some echoes embedded themselves in places—ancient ruins that remembered too much. Some embedded themselves in creatures—beasts that carried fragments of memory in their bones.</p>
+                                <p>Most embedded themselves in mortals—those who were present, those who were listening, those who refused to forget.</p>
+                                <p>These mortals became the Emberbound. Not chosen, not blessed, but marked by proximity to a moment of cosmic significance.</p>
+                                <p>They did not gain power. They gained responsibility. The responsibility to remember what the Emberstone could not.</p>
                             </div>
                         </div>
                         <div class="book-binding"></div>
                         <div class="book-page right">
                             <div class="book-content">
-                                <p class="fragment-title">Fragment VI — The Great Reforging</p>
-                                <p>The Great Reforging was meant to be gentle. A correction. A refinement. A final tempering of reality.</p>
-                                <p>But the Emberstone Prime had learned something its handlers had not:</p>
-                                <p class="emphasis">Perfection is static. Fire is not.</p>
-                                <p>When the ritual began, the world trembled not from force, but from refusal.</p>
-                                <p>The Emberstone did not explode. It tore itself apart.</p>
+                                <p class="fragment-title">Fragment VI — The World Remembers</p>
+                                <p>Orbis did not collapse. It adapted.</p>
+                                <p>Where the Emberstone's memory faltered, the world itself began to remember. Trees grew where memories were strong. Ruins formed where stories were incomplete.</p>
+                                <p>Dungeons appeared not as places, but as questions. Each corridor asked: "What happened here?" Each chamber whispered: "Who forgot this?"</p>
+                                <p>The creatures of Orbis began to change. Some became guardians of forgotten knowledge. Others became seekers of lost memories.</p>
+                                <p>And the Emberbound? They became bridges. Living connections between what was remembered and what was forgotten.</p>
                             </div>
                         </div>
                     </div>
@@ -1468,22 +1462,21 @@
                     <div class="book-page-spread" data-page="3">
                         <div class="book-page left">
                             <div class="book-content">
-                                <p class="fragment-title">Fragment VII — The Fracture</p>
-                                <p>There was no single moment of destruction.</p>
-                                <p>Some regions burned instantly. Others froze. Others continued unchanged for centuries, unaware they were already dead.</p>
-                                <p>The sky split into layers, each holding a different echo of what once was. Cities collapsed inward, becoming labyrinths of molten stone and memory. Wardens lost their purpose but not their commands.</p>
-                                <p>They continued to guard. Forever.</p>
+                                <p class="fragment-title">Fragment VII — The Age of Survival</p>
+                                <p>In the wake of the Fracture, survival became more than staying alive. It became an act of remembrance.</p>
+                                <p>Those who built homes were not just creating shelter—they were anchoring memories to places. Those who crafted tools were not just making objects—they were giving form to forgotten knowledge.</p>
+                                <p>Every structure built, every resource gathered, every alliance forged became part of Orbis's living memory.</p>
+                                <p>The Emberbound learned that they were not separate from the world. They were extensions of it. Their survival was the world's survival. Their memory was the Emberstone's memory.</p>
                             </div>
                         </div>
                         <div class="book-binding"></div>
                         <div class="book-page right">
                             <div class="book-content">
-                                <p class="fragment-title">Fragment VIII — On Dungeons</p>
-                                <p class="emphasis">Dungeons are not places. They are failures that never finished happening.</p>
-                                <p>Walls bend where reality tried to heal and failed. Corridors repeat because time folded to avoid collapse. Traps exist not to kill intruders, but to prevent access to things that should never be touched again.</p>
-                                <p>Bosses are not masters of these places. They are prisoners.</p>
-                                <p>Bound to shards that anchor unstable reality, their bodies reforged again and again until flesh and purpose became inseparable.</p>
-                                <p>When they fall, the dungeon does not celebrate. It exhales.</p>
+                                <p class="fragment-title">Fragment VIII — On Dungeons and Ruins</p>
+                                <p>The dungeons of Orbis are not places of death. They are places of forgetting.</p>
+                                <p>Where memory failed, reality became unstable. Corridors loop because time forgot how to flow forward. Traps exist because the world forgot how to be safe.</p>
+                                <p>Those who explore these places are not adventurers—they are rememberers. Each cleared room restores a fragment of memory. Each defeated guardian releases a forgotten story.</p>
+                                <p>And those who build near these places? They anchor stability. They give the world something new to remember, something to hold onto when old memories fade.</p>
                             </div>
                         </div>
                     </div>
@@ -1492,58 +1485,36 @@
                     <div class="book-page-spread" data-page="4">
                         <div class="book-page left">
                             <div class="book-content">
-                                <p class="fragment-title">Fragment IX — The Ashen Veil</p>
-                                <p>The world should have ended. Every calculation says it should have.</p>
-                                <p>Instead, something unprecedented occurred.</p>
-                                <p>As the Emberstone shattered, fragments did not scatter randomly. Many embedded themselves into living souls — not by choice, but by proximity, by resonance, by refusal to let go.</p>
-                                <p>This created the Ashen Veil: a living lattice of ember-bound souls stabilizing reality simply by existing within it.</p>
-                                <p>They were not told. They were not asked. They survived.</p>
+                                <p class="fragment-title">Fragment IX — The Emberbound Today</p>
+                                <p>The Emberbound of today are not chosen heroes. They are survivors who happened to be in the right place at the wrong time.</p>
+                                <p>They feel the world differently. They sense where memory is strong and where it is weak. They know, without knowing how they know, which places are safe and which are unstable.</p>
+                                <p>Their gear does not obey them—it recognizes them. Their builds do not just stand—they remember. Their communities do not just exist—they anchor reality.</p>
+                                <p>Every Emberbound adds their own memory to Orbis. Every structure they build, every resource they gather, every story they tell becomes part of the world's living history.</p>
                             </div>
                         </div>
                         <div class="book-binding"></div>
                         <div class="book-page right">
                             <div class="book-content">
-                                <p class="fragment-title">Fragment X — The Emberbound</p>
-                                <p>The Emberbound feel the world differently. Heat never truly leaves their bones. Corruption whispers instead of screaming. Ancient mechanisms respond as if recognizing them.</p>
-                                <p class="emphasis">Gear does not obey them. It remembers them.</p>
-                                <p>As the Emberbound grow stronger, it is not because they conquer dungeons — it is because the world entrusts them with pieces of itself.</p>
-                                <p>Every shard reclaimed is a memory restored. Every memory restored brings the Emberstone closer to coherence.</p>
+                                <p class="fragment-title">Fragment X — The Future of Orbis</p>
+                                <p>What happens next is not written. It is remembered, and it is built.</p>
+                                <p>The Emberstone watches, but it no longer decides alone. Every Emberbound who survives, who builds, who remembers adds weight to the world's decision.</p>
+                                <p>Will the fragments reunite? Will the world remember what it forgot? Will the Emberbound become the new memory keepers of Orbis?</p>
+                                <p>These questions have no answers yet. Only possibilities. And possibilities are built, not discovered.</p>
+                                <p class="emphasis">The future of Orbis is in your hands, Emberbound. Build wisely. Remember well.</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Page 5: Fragment XI (left) + Fragment XII (right) -->
+                    <!-- Page 5: Final Fragment (left) + empty (right) -->
                     <div class="book-page-spread" data-page="5">
                         <div class="book-page left">
                             <div class="book-content">
-                                <p class="fragment-title">Fragment XI — On Conflict</p>
-                                <p>Not all Emberbound agree on what this means.</p>
-                                <p>Some believe the world must be reforged properly, guided by wiser hands. Some believe the Emberstone must be extinguished before it completes itself. Some believe ascension is inevitable — that mortals were always meant to inherit the flame.</p>
-                                <p>And some believe nothing should change. That broken balance is still balance.</p>
-                                <p>Thus conflict arises not from greed, but from interpretation. Wars are fought over meaning.</p>
-                            </div>
-                        </div>
-                        <div class="book-binding"></div>
-                        <div class="book-page right">
-                            <div class="book-content">
-                                <p class="fragment-title">Fragment XII — The Crucible</p>
-                                <p>Deep beyond mapped space exists a place where the world feels unfinished. Stone there is warm. Air there hums. Time there hesitates.</p>
-                                <p>The largest remaining shard waits within the Crucible, no longer dormant, no longer fractured enough to forget.</p>
-                                <p>It does not call out. It listens.</p>
-                                <p>Each Emberbound that grows powerful enough adds weight to its decision.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Page 6: Final Fragment (left) + empty (right) -->
-                    <div class="book-page-spread" data-page="6">
-                        <div class="book-page left">
-                            <div class="book-content">
-                                <p class="fragment-title">Final Fragment — Untranslated</p>
-                                <p class="quote">"If the flame is reassembled,<br>the world will not return to what it was.<br>It will become what it was always testing itself to be."</p>
-                                <p>Whether that future is mercy, fire, or silence remains unknown.</p>
-                                <p>Because the Emberstone no longer decides alone.</p>
-                                <p class="emphasis" style="text-align: center; font-size: 1.3rem; margin-top: 2rem;">It is watching you.</p>
+                                <p class="fragment-title">Final Fragment — A Message to the Emberbound</p>
+                                <p class="quote">"In Orbis, every stone remembers.<br>Every tree whispers.<br>Every choice echoes.<br><br>Welcome to a world where survival is only the beginning of your story."</p>
+                                <p>You are not here by accident. You are here because the world needs you to remember.</p>
+                                <p>Build your home. Gather your resources. Forge your alliances. But remember: every action becomes part of Orbis's memory.</p>
+                                <p>The Emberstone watches. The world remembers. And you, Emberbound, are the bridge between what was forgotten and what will be remembered.</p>
+                                <p class="emphasis" style="text-align: center; font-size: 1.3rem; margin-top: 2rem;">Your story begins now.</p>
                             </div>
                         </div>
                         <div class="book-binding"></div>
@@ -1553,7 +1524,7 @@
             </div>
             <div class="book-navigation">
                 <button class="page-btn" id="prev-page">← Previous</button>
-                <span class="page-number" id="page-number">Page 1 of 7</span>
+                <span class="page-number" id="page-number">Page 1 of 6</span>
                 <button class="page-btn" id="next-page">Next →</button>
             </div>
         </div>
@@ -1609,6 +1580,66 @@
             });
         });
 
+        // Copy to Clipboard Functionality
+        const copyBtn = document.getElementById('copy-btn');
+        const serverAddressInput = document.getElementById('server-address');
+        const copyIcon = document.getElementById('copy-icon');
+        const copyText = document.getElementById('copy-text');
+
+        if (copyBtn && serverAddressInput) {
+            copyBtn.addEventListener('click', function() {
+                // Select the text
+                serverAddressInput.select();
+                serverAddressInput.setSelectionRange(0, 99999); // For mobile devices
+
+                try {
+                    // Copy to clipboard
+                    navigator.clipboard.writeText(serverAddressInput.value).then(function() {
+                        // Success feedback
+                        copyBtn.classList.add('copied');
+                        copyIcon.textContent = '✓';
+                        copyText.textContent = 'Copied!';
+                        
+                        // Reset after 2 seconds
+                        setTimeout(function() {
+                            copyBtn.classList.remove('copied');
+                            copyIcon.textContent = '📋';
+                            copyText.textContent = 'Copy';
+                        }, 2000);
+                    }).catch(function(err) {
+                        // Fallback for older browsers
+                        document.execCommand('copy');
+                        copyBtn.classList.add('copied');
+                        copyIcon.textContent = '✓';
+                        copyText.textContent = 'Copied!';
+                        
+                        setTimeout(function() {
+                            copyBtn.classList.remove('copied');
+                            copyIcon.textContent = '📋';
+                            copyText.textContent = 'Copy';
+                        }, 2000);
+                    });
+                } catch (err) {
+                    // Fallback for older browsers
+                    document.execCommand('copy');
+                    copyBtn.classList.add('copied');
+                    copyIcon.textContent = '✓';
+                    copyText.textContent = 'Copied!';
+                    
+                    setTimeout(function() {
+                        copyBtn.classList.remove('copied');
+                        copyIcon.textContent = '📋';
+                        copyText.textContent = 'Copy';
+                    }, 2000);
+                }
+            });
+
+            // Also allow clicking on the input to select/copy
+            serverAddressInput.addEventListener('click', function() {
+                this.select();
+            });
+        }
+
         // Lore Book Modal
         const loreBtn = document.getElementById('lore-btn');
         const loreModal = document.getElementById('lore-modal');
@@ -1642,7 +1673,7 @@
 
         // Book Page Navigation
         let currentPage = 0;
-        const totalPages = 7;
+        const totalPages = 6;
         const pageSpreads = document.querySelectorAll('.book-page-spread');
         const prevBtn = document.getElementById('prev-page');
         const nextBtn = document.getElementById('next-page');
@@ -1700,74 +1731,6 @@
             showPage(0);
         });
 
-        // Custom Audio Player Controls
-        const loreAudio = document.getElementById('lore-audio');
-        const playBtn = document.getElementById('play-btn');
-        const volumeSlider = document.getElementById('volume-slider');
-
-        if (loreAudio && playBtn && volumeSlider) {
-            // Set initial volume to 20%
-            loreAudio.volume = 0.2;
-            volumeSlider.value = 20;
-
-            // Play/Pause button
-            playBtn.addEventListener('click', function() {
-                if (loreAudio.paused) {
-                    loreAudio.play();
-                    playBtn.textContent = '⏸';
-                } else {
-                    loreAudio.pause();
-                    playBtn.textContent = '▶';
-                }
-            });
-
-            // Volume slider
-            volumeSlider.addEventListener('input', function() {
-                loreAudio.volume = this.value / 100;
-            });
-
-            // Update button when audio ends
-            loreAudio.addEventListener('ended', function() {
-                playBtn.textContent = '▶';
-            });
-
-            // Set loop
-            loreAudio.loop = true;
-
-            // Audio prompt element
-            const audioPrompt = document.getElementById('audio-prompt');
-
-            // Try to autoplay on page load
-            loreAudio.play().then(function() {
-                playBtn.textContent = '⏸';
-                if (audioPrompt) audioPrompt.classList.add('hidden');
-            }).catch(function(error) {
-                // Autoplay prevented - show prompt
-                if (audioPrompt) {
-                    setTimeout(function() {
-                        audioPrompt.classList.add('hidden');
-                    }, 5000);
-                }
-            });
-
-            // Try to autoplay after first click anywhere on page
-            let hasStarted = false;
-            const tryAutoplay = function() {
-                if (!hasStarted && loreAudio.paused) {
-                    loreAudio.play().then(function() {
-                        playBtn.textContent = '⏸';
-                        hasStarted = true;
-                        if (audioPrompt) audioPrompt.classList.add('hidden');
-                    }).catch(function(error) {
-                        // Still blocked
-                    });
-                }
-            };
-
-            // Try autoplay on click events (browsers require direct user interaction)
-            document.addEventListener('click', tryAutoplay, { once: true, passive: true });
-            document.addEventListener('touchstart', tryAutoplay, { once: true, passive: true });
-        }
     </script>
 </body>
 </html>
