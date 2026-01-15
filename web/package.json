@@ -8,8 +8,10 @@
   },
   "scripts": {
     "dev": "vite",
+    "prebuild": "node -e \"const {execSync} = require('child_process'); try { execSync('python ../create_favicon.py', {stdio: 'inherit', cwd: process.cwd()}); } catch(e) { console.log('Note: Skipping favicon generation. Install Python and Pillow to auto-generate favicon.'); }\"",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate-favicon": "python ../create_favicon.py"
   },
   "dependencies": {
     "@portabletext/vue": "^1.0.14",
