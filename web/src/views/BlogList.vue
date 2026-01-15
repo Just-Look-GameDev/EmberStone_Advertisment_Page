@@ -42,10 +42,10 @@
             </div>
 
             <div v-else class="blog-layout">
-                <!-- Top Posts in 3-Column Grid (9-12 posts) -->
+                <!-- First 3 Posts in 3-Column Grid -->
                 <div v-if="filteredPosts.length > 0" class="top-posts-row">
                     <article 
-                        v-for="(post, index) in filteredPosts.slice(0, 12)" 
+                        v-for="(post, index) in filteredPosts.slice(0, 3)" 
                         :key="post._id || post.slug?.current || post.slug"
                         class="top-post-card"
                     >
@@ -79,9 +79,9 @@
                 </div>
 
                 <!-- Remaining Posts - One per Row -->
-                <div v-if="filteredPosts.length > 12" class="single-posts-list">
+                <div v-if="filteredPosts.length > 3" class="single-posts-list">
                     <article 
-                        v-for="post in filteredPosts.slice(12)" 
+                        v-for="post in filteredPosts.slice(3)" 
                         :key="post._id || post.slug?.current || post.slug" 
                         class="single-post-card"
                     >
