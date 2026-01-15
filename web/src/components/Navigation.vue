@@ -12,17 +12,15 @@
                 <li><a href="#hiring" @click.prevent="scrollToSection('hiring')">Hiring</a></li>
                 <li><a href="#join" @click.prevent="scrollToSection('join')">Join</a></li>
                 <li><router-link to="/blog">Blog</router-link></li>
-                <li><a href="#" @click.prevent="openLore" class="lore-link">📖 Lore</a></li>
+                <li><router-link to="/lore" class="lore-link">📖 Lore</router-link></li>
             </ul>
         </div>
     </nav>
 </template>
 
 <script setup>
-import { defineEmits } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 
-const emit = defineEmits(['open-lore'])
 const router = useRouter()
 const route = useRoute()
 
@@ -51,10 +49,6 @@ const scrollToTop = () => {
     } else {
         window.scrollTo({ top: 0, behavior: 'smooth' })
     }
-}
-
-const openLore = () => {
-    emit('open-lore')
 }
 </script>
 

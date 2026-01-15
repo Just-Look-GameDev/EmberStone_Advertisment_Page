@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '../pages/HomePage.vue'
 import ImpressumPage from '../pages/ImpressumPage.vue'
+import LorePage from '../pages/LorePage.vue'
 import BlogList from '../views/BlogList.vue'
 import BlogPost from '../views/BlogPost.vue'
 
@@ -16,6 +17,11 @@ const router = createRouter({
       path: '/impressum',
       name: 'impressum',
       component: ImpressumPage
+    },
+    {
+      path: '/lore',
+      name: 'lore',
+      component: LorePage
     },
     {
       path: '/blog',

@@ -3,7 +3,7 @@
     <div class="background-gradient"></div>
 
     <BackgroundParticles />
-    <Navigation @open-lore="openLoreModal" />
+    <Navigation />
     <HeroSection />
     
     <div class="container">
@@ -21,12 +21,9 @@
     <HiringSection />
     <JoinSection />
     <Footer />
-
-    <LoreModal :is-open="isLoreOpen" @close="closeLoreModal" />
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import Navigation from '../components/Navigation.vue'
 import BackgroundParticles from '../components/BackgroundParticles.vue'
 import HeroSection from '../components/HeroSection.vue'
@@ -37,16 +34,5 @@ import StatsSection from '../components/StatsSection.vue'
 import HiringSection from '../components/HiringSection.vue'
 import JoinSection from '../components/JoinSection.vue'
 import Footer from '../components/Footer.vue'
-import LoreModal from '../components/LoreModal.vue'
 import FadeInWrapper from '../components/FadeInWrapper.vue'
-
-const isLoreOpen = ref(false)
-
-const openLoreModal = () => {
-    isLoreOpen.value = true
-}
-
-const closeLoreModal = () => {
-    isLoreOpen.value = false
-}
 </script>
