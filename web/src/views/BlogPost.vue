@@ -71,7 +71,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, h } from 'vue'
+import { ref, onMounted, watch, h } from 'vue'
 import { useRoute } from 'vue-router'
 import { format } from 'date-fns'
 import { PortableText } from '@portabletext/vue'
@@ -128,17 +128,18 @@ const components = {
     },
 }
 
-onMounted(async () => {
+const loadPost = async (slug) => {
     try {
         loading.value = true
         error.value = false
-        const slug = route.params.slug
         post.value = await getPostBySlug(slug)
         
         if (post.value) {
             // Fetch adjacent posts
             const adjacent = await getAdjacentPosts(post.value.publishedAt, post.value._id)
             adjacentPosts.value = adjacent
+            // Scroll to top when loading new post
+            window.scrollTo({ top: 0, behavior: 'smooth' })
         } else {
             error.value = true
         }
@@ -147,6 +148,17 @@ onMounted(async () => {
         error.value = true
     } finally {
         loading.value = false
+    }
+}
+
+onMounted(() => {
+    loadPost(route.params.slug)
+})
+
+// Watch for route changes to reload post when navigating between posts
+watch(() => route.params.slug, (newSlug) => {
+    if (newSlug) {
+        loadPost(newSlug)
     }
 })
 </script>
