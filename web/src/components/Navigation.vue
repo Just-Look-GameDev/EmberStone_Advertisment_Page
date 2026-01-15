@@ -6,6 +6,7 @@
                 <span class="nav-title">EmberStone</span>
             </router-link>
             <ul class="nav-links">
+                <li><a href="#" @click.prevent="scrollToTop">Start</a></li>
                 <li><a href="#about" @click.prevent="scrollToSection('about')">About</a></li>
                 <li><a href="#features" @click.prevent="scrollToSection('features')">Features</a></li>
                 <li><a href="#survival" @click.prevent="scrollToSection('survival')">Survival</a></li>

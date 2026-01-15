@@ -9,7 +9,7 @@
     <div class="container">
         <FadeInWrapper>
             <div class="image-showcase">
-                <img src="/hero.jpg" alt="EmberStone Hytale Survival Server - Orbis World Landscape" loading="lazy" width="1400" height="600" />
+                <img src="/hero.jpg" alt="EmberStone - Survival Server evolving into MMORPG - Orbis World Landscape" loading="lazy" width="1400" height="600" />
             </div>
         </FadeInWrapper>
     </div>

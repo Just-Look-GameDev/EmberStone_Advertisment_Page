@@ -111,16 +111,16 @@ import { ref } from 'vue'
 import FadeInWrapper from './FadeInWrapper.vue'
 
 // Private page - Impressum information
-const ownerName = ref('---')
+const ownerName = ref('Andre Dilger')
 const address = ref({
-    street: '---',
-    postalCode: '---',
-    city: '---',
-    country: '---'
+    street: 'Berger halde 31/2',
+    postalCode: '88074',
+    city: 'Meckenbeuren',
+    country: 'Deutschland'
 })
 
 const contact = ref({
-    email: 'contact@emberstone.net', // Update with your preferred contact email
+    email: 'info@emberstone.net',
     phone: '' // Add phone number if you want to provide it
 })
 

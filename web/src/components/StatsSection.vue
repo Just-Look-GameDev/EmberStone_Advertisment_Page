@@ -9,7 +9,7 @@
 
             <FadeInWrapper>
                 <div class="stats-grid">
-                    <div class="stat-card" v-for="stat in stats" :key="stat.number">
+                    <div class="stat-card" v-for="stat in stats" :key="stat.number" :class="stat.status">
                         <div class="stat-number">{{ stat.number }}</div>
                         <div class="stat-label">{{ stat.label }}</div>
                     </div>
@@ -35,9 +35,9 @@ import FadeInWrapper from './FadeInWrapper.vue'
 
 const stats = ref([
     { number: '∞', label: 'Procedural Zones' },
-    { number: '🟢', label: 'Online Now' },
-    { number: '🎮', label: 'Survival Mode' },
-    { number: '⚔️', label: 'RPG Coming' }
+    { number: 'ONLINE', label: 'Server Status', status: 'online' },
+    { number: 'SURVIVAL', label: 'Current Mode' },
+    { number: 'RPG', label: 'Coming Soon', status: 'coming' }
 ])
 
 const serverFeatures = ref([
@@ -58,3 +58,29 @@ const serverFeatures = ref([
     }
 ])
 </script>
+
+<style scoped>
+.stat-card.online .stat-number {
+    color: #4ade80;
+    -webkit-text-fill-color: #4ade80;
+}
+
+.stat-card.coming .stat-number {
+    color: var(--accent-gold);
+    -webkit-text-fill-color: var(--accent-gold);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.stat-card:first-child .stat-number {
+    font-size: 3.5rem;
+    background: linear-gradient(135deg, var(--primary-orange), var(--accent-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+</style>

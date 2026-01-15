@@ -1,12 +1,11 @@
 <template>
     <section class="hero" itemscope itemtype="https://schema.org/VideoGame">
-        <img src="/logo.png" alt="EmberStone Hytale Survival Server Logo" class="hero-logo" itemprop="image" />
+        <img src="/logo.png" alt="EmberStone - Survival Server evolving into MMORPG Logo" class="hero-logo" itemprop="image" />
         <h1 class="hero-subtitle">
-            Best Hytale Survival Server 2026 - EmberStone
+            Survival Server → Evolving into MMORPG
         </h1>
         <p class="hero-tagline" itemprop="description">
-            Welcome to Orbis, where ancient magic flows through every stone and the world remembers those who shape it. Build your legacy in a realm where survival is only the
-            beginning. Discover the secrets of the Emberstone and become part of a story that spans generations.
+            Welcome to Orbis, a world steeped in deep lore where the <span class="highlight-text">Emberbound</span> shape the world and prepare for the future. Currently a survival server, evolving into a full MMORPG with classes, professions, quests, and dungeons—all woven into our rich, immersive storytelling. Join us in building something extraordinary.
         </p>
         <ServerAddressInput label="🟢 Server Online — Join Now" />
         <div class="cta-group">
@@ -74,6 +73,11 @@ const scrollToFeatures = () => {
     margin: 0 auto 3rem;
     font-weight: 300;
     line-height: 1.8;
+}
+
+.highlight-text {
+    color: var(--secondary-orange);
+    font-weight: 600;
 }
 
 .cta-group {

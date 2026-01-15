@@ -3,10 +3,9 @@
         <div class="container">
             <FadeInWrapper>
                 <div class="section-header">
-                    <h2 class="section-title">Pure Survival Experience</h2>
+                    <h2 class="section-title">Survival Server</h2>
                     <p class="section-subtitle">
-                        Experience Hytale survival in its purest form, enhanced by rich lore and a vibrant community.
-                        <span class="highlight-text">Currently live as Survival — evolving into an RPG gamemode in the future!</span>
+                        Our active survival server where features are developed and refined with community feedback.
                     </p>
                 </div>
             </FadeInWrapper>
@@ -14,22 +13,21 @@
             <FadeInWrapper>
                 <div class="feature-showcase">
                     <div class="image-showcase">
-                        <img src="/future gamemode.jpg" alt="Future RPG gamemode preview for EmberStone Hytale survival server" loading="lazy" width="800" height="500" />
+                        <img src="/future gamemode.jpg" alt="EmberStone development phase - survival server testing features for future MMO" loading="lazy" width="800" height="500" />
                     </div>
                     <div class="feature-content">
-                        <h3>What Makes Our Survival Special?</h3>
-                        <p>At its core, EmberStone is currently a pure survival server. Gather resources, build shelters, craft tools, and explore the vast world of Orbis.</p>
+                        <h3>Current State: Live Survival Server</h3>
                         <p>
-                            We've woven the ancient lore of the Emberstone throughout your journey. Discover hidden locations, uncover forgotten stories, and feel the weight of
-                            history as you build your legacy.
+                            <span class="highlight-text">The survival server is live and fully playable.</span> This is not just a test server—it's an active, engaging survival experience where you can build, craft, explore, and enjoy Hytale survival gameplay.
                         </p>
                         <p>
-                            <span class="highlight-text">No pay-to-win. No overpowered kits.</span> Just pure survival, enhanced by a world that feels alive and a community that
-                            shapes its own destiny.
+                            <span class="highlight-text">Purpose:</span> As we develop classes, professions, quests, dungeons, and trading systems, they're implemented and tested here first. Your gameplay and feedback directly influence how these features are refined.
+                        </p>
+                        <p>
+                            <span class="highlight-text">Community Role:</span> As an Emberbound, you're not just playing—you're helping shape the future MMO. Test new features, provide feedback, report issues, and watch your suggestions become part of the final game.
                         </p>
                         <p style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255, 140, 66, 0.3)">
-                            <span class="highlight-text">Future Plans:</span> The server will evolve into a full RPG-styled gamemode with quests, classes, and deeper progression
-                            systems. For now, enjoy the pure survival experience and help shape the world that will become the foundation for our RPG adventure!
+                            <span class="highlight-text">What You Get:</span> Early access to new features, the ability to influence development, engaging survival gameplay, and the satisfaction of knowing you helped build something extraordinary.
                         </p>
                     </div>
                 </div>

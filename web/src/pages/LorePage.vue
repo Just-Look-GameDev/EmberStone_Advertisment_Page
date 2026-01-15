@@ -42,105 +42,220 @@ import BackgroundParticles from '../components/BackgroundParticles.vue'
 import Footer from '../components/Footer.vue'
 
 const currentPage = ref(0)
-const totalPages = 6
+const totalPages = 8
 
 const pages = ref([
     {
         left: `
-            <p class="fragment-title">Fragment I — The Birth of Orbis</p>
-            <p class="quote">"Before the first stone was laid,<br />before the first tree grew,<br />there was only the Emberstone."</p>
-            <p>In the beginning, Orbis was formless. Not empty, but unshaped. A realm of potential waiting for direction.</p>
-            <p>When the Emberstone awakened, it did not create—it remembered. It remembered what a world should be, and from that memory, Orbis took form.</p>
-            <p>The first biomes were not built—they were dreamed. The first creatures were not made—they were imagined into being. The first magic was not cast—it simply was.</p>
-            <p>The Emberstone remained at the world's heart, unseen by most, but felt by all. It did not demand worship. It did not guide hands.</p>
-            <p class="emphasis">It simply remembered, and in remembering, it sustained.</p>
+            <p class="book-title">🔥 EMBERSTONE</p>
+            <p class="book-subtitle">Fragments from a World That Learned to Continue</p>
+            <p class="book-subtitle">From the Ash Codex</p>
+            <p class="book-subtitle" style="margin-top: 2rem;">Tempered Canon</p>
         `,
         right: `
-            <p class="fragment-title">Fragment II — The First Settlers</p>
-            <p>The first mortals to arrive in Orbis did not discover it—they were invited.</p>
-            <p>Drawn by whispers on the wind, by dreams of a land where magic flowed like water, they came from realms beyond understanding.</p>
-            <p>They found a world already rich with life, already shaped by forces they could not comprehend. But they adapted. They learned.</p>
-            <p>They discovered that in Orbis, intention shapes reality. That building was not just construction—it was conversation with the world itself.</p>
-            <p>And so the first settlements rose, not as conquest, but as collaboration. The Emberstone watched, and it remembered their names.</p>
+            <p class="fragment-title">Fragment I — Origin</p>
+            <p class="quote">"Fire does not destroy.<br />Fire reveals what endures."</p>
+            <p>Before the world had a name, it existed as heat without direction.</p>
+            <p>Not flame. Not light.</p>
+            <p>But pressure — a need to become something else.</p>
+            <p>When the Emberstone awakened, it did not speak.</p>
+            <p>It strained.</p>
+            <p>From that strain came land.</p>
+            <p>From land came breath.</p>
+            <p>From breath came thought.</p>
+            <p>The first mountains were not raised — they were cooled.</p>
+            <p>The first seas were not poured — they were condensed.</p>
+            <p>The first sky was not lifted — it was released.</p>
+            <p>At the world's heart burned the Emberstone Prime: unseen, unheard, endlessly burning.</p>
+            <p>It demanded no worship.</p>
+            <p>It guided no hands.</p>
+            <p class="emphasis">It waited.</p>
         `
     },
     {
         left: `
-            <p class="fragment-title">Fragment III — The Age of Discovery</p>
-            <p>As mortals spread across Orbis, they discovered that the world was far vaster than they imagined.</p>
-            <p>Each biome held its own secrets. Each zone whispered different stories. The forests remembered different things than the deserts. The mountains spoke in different tongues than the oceans.</p>
-            <p>Explorers became cartographers. Cartographers became scholars. Scholars became keepers of knowledge.</p>
-            <p>They learned that Orbis was not static. That the world itself was alive, growing, changing, remembering.</p>
-            <p>And they learned that the Emberstone was not a thing, but a process. A constant act of remembering that kept the world whole.</p>
+            <p class="fragment-title">Fragment II — On the Nature of Flame</p>
+            <p>The Forgeborn did not discover the Emberstone.</p>
+            <p>They discovered that fire remembers.</p>
+            <p>Metal forged under sustained heat carried echoes — pressure, intent, resistance.</p>
+            <p>Blades struck true not because they were sharp, but because they insisted.</p>
+            <p>Armor endured not because it was strong, but because it refused to fail.</p>
+            <p>The Forgeborn learned to bind memory into matter.</p>
+            <p>Cities became stories.</p>
+            <p>Weapons became arguments.</p>
+            <p>Architecture became belief.</p>
+            <p class="emphasis">Belief, repeated long enough, hardened into doctrine.</p>
         `,
         right: `
-            <p class="fragment-title">Fragment IV — The Great Fracture</p>
-            <p>Then came the day when someone asked a question that should never have been asked:</p>
-            <p class="quote">"If the Emberstone remembers everything...<br />what happens when it forgets?"</p>
-            <p>They tried to force an answer. They built machines to extract memory. They created rituals to command forgetting.</p>
-            <p>They did not understand that memory cannot be commanded. That forgetting cannot be forced.</p>
-            <p>When they tried, the Emberstone did not break. It fractured. And in fracturing, it remembered something new: what it meant to be incomplete.</p>
+            <p class="fragment-title">Fragment III — The First Cities</p>
+            <p>The earliest cities were not built upward.</p>
+            <p>They were carved by restraint.</p>
+            <p>Stone was removed, not stacked.</p>
+            <p>Weight was distributed, not elevated.</p>
+            <p>Strength came from endurance, not reach.</p>
+            <p>Children were taught that height was ambition —</p>
+            <p>and depth was understanding.</p>
+            <p>Depth was never about direction.</p>
+            <p>It was about accepting pressure without breaking.</p>
+            <p class="emphasis">Not all foundations were meant to hear.</p>
         `
     },
     {
         left: `
-            <p class="fragment-title">Fragment V — The Scattered Shards</p>
-            <p>When the Emberstone fractured, it did not shatter into pieces. It scattered into echoes.</p>
-            <p>Some echoes embedded themselves in places—ancient ruins that remembered too much. Some embedded themselves in creatures—beasts that carried fragments of memory in their bones.</p>
-            <p>Most embedded themselves in mortals—those who were present, those who were listening, those who refused to forget.</p>
-            <p>These mortals became the Emberbound. Not chosen, not blessed, but marked by proximity to a moment of cosmic significance.</p>
-            <p>They did not gain power. They gained responsibility. The responsibility to remember what the Emberstone could not.</p>
+            <p class="fragment-title">Fragment IV — The Ember Covenant</p>
+            <p>The Covenant did not begin as tyrants.</p>
+            <p>They were caretakers.</p>
+            <p>Forge-lords regulated ember use.</p>
+            <p>Scholars charted safe thresholds.</p>
+            <p>Wardens sealed unstable sites and marked them with warnings written in heat-proof script.</p>
+            <p>For centuries, it worked.</p>
+            <p>The world prospered not through conquest —</p>
+            <p>but through maintenance.</p>
+            <p>Then came the question no record can answer:</p>
+            <p class="quote">"If the Emberstone sustains the world…<br />what sustains the Emberstone?"</p>
+            <p>No name remains of the one who first proposed reforging it.</p>
+            <p class="emphasis">Only that once conceived, the idea refused to die.</p>
         `,
         right: `
-            <p class="fragment-title">Fragment VI — The World Remembers</p>
-            <p>Orbis did not collapse. It adapted.</p>
-            <p>Where the Emberstone's memory faltered, the world itself began to remember. Trees grew where memories were strong. Ruins formed where stories were incomplete.</p>
-            <p>Dungeons appeared not as places, but as questions. Each corridor asked: "What happened here?" Each chamber whispered: "Who forgot this?"</p>
-            <p>The creatures of Orbis began to change. Some became guardians of forgotten knowledge. Others became seekers of lost memories.</p>
-            <p>And the Emberbound? They became bridges. Living connections between what was remembered and what was forgotten.</p>
+            <p class="fragment-title">Fragment V — Early Reforgings</p>
+            <p>The first reforgings were small.</p>
+            <p>A forest where decay slowed.</p>
+            <p>A city where illness vanished.</p>
+            <p>A river that returned what it carried.</p>
+            <p>The world did not resist.</p>
+            <p>It adapted.</p>
+            <p>Encouraged, the Covenant extended ember systems across continents.</p>
+            <p>Listening sites became control structures.</p>
+            <p>Ember-shards were embedded into living guardians — volunteers who believed eternal service was the highest honor.</p>
+            <p>They were called Wardens.</p>
+            <p class="emphasis">None were built to question.</p>
         `
     },
     {
         left: `
-            <p class="fragment-title">Fragment VII — The Age of Survival</p>
-            <p>In the wake of the Fracture, survival became more than staying alive. It became an act of remembrance.</p>
-            <p>Those who built homes were not just creating shelter—they were anchoring memories to places. Those who crafted tools were not just making objects—they were giving form to forgotten knowledge.</p>
-            <p>Every structure built, every resource gathered, every alliance forged became part of Orbis's living memory.</p>
-            <p>The Emberbound learned that they were not separate from the world. They were extensions of it. Their survival was the world's survival. Their memory was the Emberstone's memory.</p>
+            <p class="fragment-title">Fragment VI — The Great Reforging</p>
+            <p>The Great Reforging was meant to be gentle.</p>
+            <p>A correction.</p>
+            <p>A refinement.</p>
+            <p>A final tempering of reality.</p>
+            <p>But the Emberstone Prime learned what its handlers did not:</p>
+            <p class="quote">Perfection is static.<br />Fire is not.</p>
+            <p>When the ritual began, the world trembled — not from force, but from refusal.</p>
+            <p>The Emberstone did not explode.</p>
+            <p class="emphasis">It tore itself apart.</p>
         `,
         right: `
-            <p class="fragment-title">Fragment VIII — On Dungeons and Ruins</p>
-            <p>The dungeons of Orbis are not places of death. They are places of forgetting.</p>
-            <p>Where memory failed, reality became unstable. Corridors loop because time forgot how to flow forward. Traps exist because the world forgot how to be safe.</p>
-            <p>Those who explore these places are not adventurers—they are rememberers. Each cleared room restores a fragment of memory. Each defeated guardian releases a forgotten story.</p>
-            <p>And those who build near these places? They anchor stability. They give the world something new to remember, something to hold onto when old memories fade.</p>
+            <p class="fragment-title">Fragment VII — The Fracture</p>
+            <p>There was no single moment of destruction.</p>
+            <p>Some regions burned instantly.</p>
+            <p>Others froze.</p>
+            <p>Others persisted unchanged, unaware they were already dead.</p>
+            <p>The sky fractured into layered echoes.</p>
+            <p>Cities collapsed, twisted, or hardened into silent shapes of memory.</p>
+            <p>The Wardens lost their purpose — but not their commands.</p>
+            <p>They continued to guard.</p>
+            <p class="emphasis">Forever.</p>
         `
     },
     {
         left: `
-            <p class="fragment-title">Fragment IX — The Emberbound Today</p>
-            <p>The Emberbound of today are not chosen heroes. They are survivors who happened to be in the right place at the wrong time.</p>
-            <p>They feel the world differently. They sense where memory is strong and where it is weak. They know, without knowing how they know, which places are safe and which are unstable.</p>
-            <p>Their gear does not obey them—it recognizes them. Their builds do not just stand—they remember. Their communities do not just exist—they anchor reality.</p>
-            <p>Every Emberbound adds their own memory to Orbis. Every structure they build, every resource they gather, every story they tell becomes part of the world's living history.</p>
+            <p class="fragment-title">Fragment VIII — The Ashen Veil</p>
+            <p>By all measure, the world should have ended.</p>
+            <p>Every calculation said it would.</p>
+            <p>Instead, something unprecedented occurred.</p>
+            <p>As the Emberstone shattered, its fragments did not scatter at random.</p>
+            <p>Many embedded themselves into living souls — not by choice, but by proximity, resonance, and refusal to let go.</p>
+            <p>Thus formed the Ashen Veil:</p>
+            <p>a living lattice of ember-bound souls stabilizing reality simply by existing within it.</p>
+            <p>They were not chosen.</p>
+            <p>They were not warned.</p>
+            <p class="emphasis">They endured.</p>
         `,
         right: `
-            <p class="fragment-title">Fragment X — The Future of Orbis</p>
-            <p>What happens next is not written. It is remembered, and it is built.</p>
-            <p>The Emberstone watches, but it no longer decides alone. Every Emberbound who survives, who builds, who remembers adds weight to the world's decision.</p>
-            <p>Will the fragments reunite? Will the world remember what it forgot? Will the Emberbound become the new memory keepers of Orbis?</p>
-            <p>These questions have no answers yet. Only possibilities. And possibilities are built, not discovered.</p>
-            <p class="emphasis">The future of Orbis is in your hands, Emberbound. Build wisely. Remember well.</p>
+            <p class="fragment-title">Fragment IX — The Tempering</p>
+            <p>The world did not heal.</p>
+            <p>It settled.</p>
+            <p>Where fragments anchored into land, stability returned.</p>
+            <p>Where none remained, ruins hardened into stillness.</p>
+            <p>Civilizations collapsed, but life did not end.</p>
+            <p>New cities rose atop scars.</p>
+            <p>Trade routes formed along stable fault-lines.</p>
+            <p>Cultures adapted to a world that had learned its limits.</p>
+            <p>The Emberstone Prime was gone.</p>
+            <p>In its place remained countless fragments — most inert, some resonant.</p>
+            <p>The world became tempered.</p>
+            <p>Not perfect.</p>
+            <p>Not whole.</p>
+            <p class="emphasis">But continuing.</p>
         `
     },
     {
         left: `
-            <p class="fragment-title">Final Fragment — A Message to the Emberbound</p>
-            <p class="quote">"In Orbis, every stone remembers.<br />Every tree whispers.<br />Every choice echoes.<br /><br />Welcome to a world where survival is only the beginning of your story."</p>
-            <p>You are not here by accident. You are here because the world needs you to remember.</p>
-            <p>Build your home. Gather your resources. Forge your alliances. But remember: every action becomes part of Orbis's memory.</p>
-            <p>The Emberstone watches. The world remembers. And you, Emberbound, are the bridge between what was forgotten and what will be remembered.</p>
-            <p class="emphasis" style="text-align: center; font-size: 1.3rem; margin-top: 2rem">Your story begins now.</p>
+            <p class="fragment-title">Fragment X — The Emberbound</p>
+            <p>Those who resonate with Emberstone fragments are known as the Emberbound.</p>
+            <p>They are not heroes by birth.</p>
+            <p>They are not chosen by fate.</p>
+            <p class="emphasis">They are compatible.</p>
+            <p>Fragments bind to those who endure pressure without collapse —</p>
+            <p>who act, persist, and return.</p>
+            <p>The Emberbound do not reshape the world.</p>
+            <p>They do not command reality.</p>
+            <p>They stabilize what threatens to unravel.</p>
+            <p>Fragments grow through use.</p>
+            <p>Memory deepens through trial.</p>
+            <p>Resonance strengthens through persistence.</p>
+            <p class="emphasis">Fire remembers effort.</p>
+        `,
+        right: `
+            <p class="fragment-title">Fragment XI — Memory Structures</p>
+            <p>Not all places stabilized cleanly.</p>
+            <p>Some ruins still remember what they were meant to be.</p>
+            <p>Some systems repeat their final command endlessly.</p>
+            <p>Some Wardens still defend halls long emptied.</p>
+            <p>These places draw the Emberbound.</p>
+            <p>They are not prisons.</p>
+            <p>They are not tombs.</p>
+            <p>They are memory structures — truths looping imperfectly.</p>
+            <p>They reset not because they are repaired,</p>
+            <p>but because the world remembers them incorrectly.</p>
+        `
+    },
+    {
+        left: `
+            <p class="fragment-title">Fragment XII — On Friction</p>
+            <p>The world remembers what it was meant to become.</p>
+            <p>The Emberbound prevent that memory from resolving.</p>
+            <p>Some lands resist them.</p>
+            <p>Some structures fracture when approached.</p>
+            <p>Some echoes grow hostile, as if stability itself were intrusion.</p>
+            <p>Conflict does not arise from desire.</p>
+            <p class="emphasis">It arises from resistance.</p>
+            <p>The world is no longer certain it wants to finish.</p>
+        `,
+        right: `
+            <p class="fragment-title">Fragment XIII — The Crucible</p>
+            <p>The Crucible endured.</p>
+            <p>Stone holds warmth.</p>
+            <p>Air hums with intent.</p>
+            <p>Time hesitates.</p>
+            <p>Fragments resonate safely here.</p>
+            <p>Pressure aligns instead of clashing.</p>
+            <p>The Crucible is not a forge.</p>
+            <p>It is not a sanctuary.</p>
+            <p>It is where the unfinished world is held.</p>
+            <p>From here, fragments are refined.</p>
+            <p>From here, continuity is shared.</p>
+            <p>From here, the tempered world persists.</p>
+        `
+    },
+    {
+        left: `
+            <p class="fragment-title">Final Fragment — Untranslated</p>
+            <p class="quote">"If the flame is ever reassembled,<br />the world will not return to what it was.</p>
+            <p class="quote">It will become<br />what it was always testing itself to be."</p>
+            <p>Whether that future is mercy, fire, or silence remains unknown.</p>
+            <p class="emphasis">Because the Emberstone no longer decides alone.</p>
+            <p class="emphasis" style="text-align: center; font-size: 1.3rem; margin-top: 2rem;">It is watching you.</p>
         `,
         right: ''
     }
@@ -252,7 +367,7 @@ onUnmounted(() => {
 
 .book-page {
     flex: 1;
-    padding: 2.5rem 2.5rem;
+    padding: 2rem 2rem;
     background: #faf8f3;
     position: relative;
     min-height: 700px;
@@ -339,7 +454,7 @@ onUnmounted(() => {
     color: #2a1f15;
     font-family: 'Georgia', 'Times New Roman', serif;
     font-size: 0.9rem;
-    line-height: 1.7;
+    line-height: 1.4;
     text-align: justify;
     position: relative;
     z-index: 1;
@@ -348,7 +463,7 @@ onUnmounted(() => {
 }
 
 .book-content :deep(p) {
-    margin: 1rem 0;
+    margin: 0.5rem 0;
     text-indent: 0;
     letter-spacing: 0.01em;
 }
@@ -357,12 +472,12 @@ onUnmounted(() => {
     font-size: 1.2rem;
     color: #6b4423;
     font-weight: 700;
-    margin: 0 0 1.5rem;
+    margin: 0.8rem 0 0.8rem;
     text-align: center;
     text-indent: 0;
     border-top: 2px solid rgba(139, 69, 19, 0.4);
-    padding-top: 1.5rem;
-    margin-top: 0.5rem;
+    padding-top: 0.8rem;
+    margin-top: 0.3rem;
     font-family: 'Georgia', serif;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -378,14 +493,14 @@ onUnmounted(() => {
     font-style: italic;
     color: #6b4423;
     text-align: center;
-    margin: 1.2rem 1rem;
-    padding: 1rem;
+    margin: 0.6rem 1rem;
+    padding: 0.6rem;
     border-left: 3px solid rgba(139, 69, 19, 0.5);
     background: rgba(139, 69, 19, 0.1);
     text-indent: 0;
     font-size: 0.95rem;
     border-radius: 4px;
-    line-height: 1.6;
+    line-height: 1.4;
     box-shadow: inset 0 0 10px rgba(139, 69, 19, 0.05);
     font-weight: 500;
 }
@@ -393,6 +508,31 @@ onUnmounted(() => {
 .book-content :deep(.emphasis) {
     color: #6b4423;
     font-weight: 700;
+    font-style: italic;
+}
+
+.book-content :deep(.book-title) {
+    font-size: 2.5rem;
+    color: #8b4513;
+    font-weight: 900;
+    text-align: center;
+    margin: 2rem 0 1.5rem;
+    text-indent: 0;
+    font-family: 'Georgia', serif;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+.book-content :deep(.book-subtitle) {
+    font-size: 1.1rem;
+    color: #6b4423;
+    font-weight: 500;
+    text-align: center;
+    margin: 0.3rem 0;
+    text-indent: 0;
+    font-family: 'Georgia', serif;
+    letter-spacing: 0.05em;
     font-style: italic;
 }
 
