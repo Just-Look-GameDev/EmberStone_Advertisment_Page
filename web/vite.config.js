@@ -1,5 +1,5 @@
 import { fileURLToPath, URL } from 'node:url'
-import { copyFileSync } from 'node:fs'
+import { copyFileSync, readFileSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 
 import { defineConfig } from 'vite'
@@ -21,6 +21,16 @@ export default defineConfig({
           copyFileSync(cnamePath, distPath)
         } catch (err) {
           // CNAME might not exist, that's okay
+        }
+        
+        // Copy index.html to 404.html for GitHub Pages SPA routing
+        // This allows direct access to routes like /blog to work
+        const indexPath = resolve(__dirname, 'dist/index.html')
+        const notFoundPath = resolve(__dirname, 'dist/404.html')
+        try {
+          copyFileSync(indexPath, notFoundPath)
+        } catch (err) {
+          console.warn('Could not create 404.html:', err)
         }
       }
     }
