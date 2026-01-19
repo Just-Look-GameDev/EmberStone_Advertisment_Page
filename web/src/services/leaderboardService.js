@@ -1,4 +1,10 @@
-const API_BASE_URL = 'http://65.109.30.254:3000/api'
+// Use environment variable or default to Cloudflare Worker proxy
+// The Cloudflare Worker handles the custom certificate issue by proxying through Cloudflare's infrastructure
+// Options:
+// 1. Cloudflare Worker (recommended): https://api.emberstone.net/api or workers.dev URL
+// 2. Direct subdomain (if HTTPS enabled): https://join.emberstone.net:3000/api
+// Default: Use deployed Cloudflare Worker endpoint
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://emberstone-api-proxy.emberstone.workers.dev/api'
 
 /**
  * Fetch leaderboard data for a specific profession
@@ -26,6 +32,12 @@ export async function getLeaderboard(profession = 'ALL', limit = 10, sort = 'lev
     return data
   } catch (error) {
     console.error('Error fetching leaderboard:', error)
+    
+    // Provide more helpful error messages
+    if (error.message.includes('Failed to fetch') || error.message.includes('NetworkError')) {
+      throw new Error('Unable to connect to the leaderboard API. Please check if the API server is running and the Cloudflare Worker is properly configured.')
+    }
+    
     throw error
   }
 }

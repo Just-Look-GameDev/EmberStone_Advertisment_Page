@@ -1,0 +1,15 @@
+name = "emberstone-api-proxy"
+main = "api-proxy.js"
+compatibility_date = "2026-01-19"
+
+# Route configuration - uncomment and configure after deployment
+# routes = [
+#   { pattern = "api.emberstone.net/*", zone_name = "emberstone.net" }
+# ]
+
+# Or use a workers.dev subdomain (no configuration needed)
+# The worker will be available at: emberstone-api-proxy.YOUR_SUBDOMAIN.workers.dev
+
+# Environment variables (optional)
+# [vars]
+# API_BASE_URL = "https://65.109.30.254:3000"

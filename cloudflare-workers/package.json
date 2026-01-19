@@ -1,0 +1,22 @@
+{
+  "name": "emberstone-api-proxy",
+  "version": "1.0.0",
+  "description": "Cloudflare Worker to proxy EmberStone API requests",
+  "main": "api-proxy.js",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev",
+    "tail": "wrangler tail"
+  },
+  "keywords": [
+    "cloudflare",
+    "worker",
+    "proxy",
+    "api"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
