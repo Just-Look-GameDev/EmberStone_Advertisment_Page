@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '../pages/HomePage.vue'
 import ImpressumPage from '../pages/ImpressumPage.vue'
 import LorePage from '../pages/LorePage.vue'
+import LeaderboardPage from '../pages/LeaderboardPage.vue'
 import BlogList from '../views/BlogList.vue'
 import BlogPost from '../views/BlogPost.vue'
 
@@ -22,6 +23,11 @@ const router = createRouter({
       path: '/lore',
       name: 'lore',
       component: LorePage
+    },
+    {
+      path: '/leaderboard',
+      name: 'leaderboard',
+      component: LeaderboardPage
     },
     {
       path: '/blog',

@@ -13,6 +13,7 @@
                 <li><a href="#hiring" @click.prevent="scrollToSection('hiring')">Hiring</a></li>
                 <li><a href="#join" @click.prevent="scrollToSection('join')">Join</a></li>
                 <li><router-link to="/blog">Blog</router-link></li>
+                <li><router-link to="/leaderboard">🏆 Leaderboard</router-link></li>
                 <li><router-link to="/lore" class="lore-link">📖 Lore</router-link></li>
             </ul>
         </div>
