@@ -72,11 +72,6 @@
                     </div>
 
                     <div v-else-if="leaderboardData && leaderboardData.players && leaderboardData.players.length > 0" class="leaderboard-table-wrapper">
-                        <div class="leaderboard-info">
-                            <span class="info-text">
-                                Showing {{ leaderboardData.players.length }} of {{ leaderboardData.total }} players
-                            </span>
-                        </div>
                         <table class="leaderboard-table">
                             <thead>
                                 <tr>
@@ -286,30 +281,19 @@ onMounted(() => {
     box-shadow: 0 4px 12px rgba(255, 106, 0, 0.3);
 }
 
-.leaderboard-info {
-    margin-bottom: 1rem;
-    text-align: right;
-}
-
-.info-text {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-}
-
 .leaderboard-table-wrapper {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 16px;
-    padding: 0;
+    padding: 1.5rem;
     overflow-x: auto;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .leaderboard-table {
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    min-width: 600px;
+    border-collapse: collapse;
+    table-layout: fixed;
 }
 
 .leaderboard-table thead {
@@ -329,10 +313,21 @@ onMounted(() => {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     border-bottom: 2px solid var(--primary-orange);
+    white-space: nowrap;
+}
+
+.leaderboard-table th.rank-col {
+    text-align: center;
 }
 
 .leaderboard-table th:first-child {
     border-top-left-radius: 16px;
+}
+
+.leaderboard-table th.level-col,
+.leaderboard-table th.xp-col,
+.leaderboard-table th.professions-col {
+    text-align: right;
 }
 
 .leaderboard-table th:last-child {
@@ -340,8 +335,7 @@ onMounted(() => {
 }
 
 .leaderboard-table tbody tr {
-    border-bottom: 1px solid rgba(255, 106, 0, 0.1);
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     background: transparent;
 }
 
@@ -349,7 +343,7 @@ onMounted(() => {
     background: rgba(255, 106, 0, 0.02);
 }
 
-.leaderboard-table tbody tr:last-child {
+.leaderboard-table tbody tr:last-child td {
     border-bottom: none;
 }
 
@@ -362,45 +356,42 @@ onMounted(() => {
 }
 
 .leaderboard-table tbody tr:hover {
-    background: rgba(255, 106, 0, 0.1) !important;
-    transform: translateX(4px);
-    box-shadow: -4px 0 0 var(--primary-orange), 0 2px 8px rgba(255, 106, 0, 0.2);
+    background: rgba(255, 106, 0, 0.08) !important;
 }
 
 .leaderboard-table tbody tr.top-three {
-    background: linear-gradient(90deg, rgba(255, 106, 0, 0.08), rgba(255, 140, 66, 0.05)) !important;
-    border-left: 4px solid var(--primary-orange);
-    box-shadow: inset 4px 0 0 var(--primary-orange);
+    background: linear-gradient(90deg, rgba(255, 106, 0, 0.06), rgba(255, 140, 66, 0.03)) !important;
 }
 
 .leaderboard-table tbody tr.top-three:hover {
-    background: linear-gradient(90deg, rgba(255, 106, 0, 0.15), rgba(255, 140, 66, 0.1)) !important;
-    border-left-color: var(--secondary-orange);
-    box-shadow: inset 4px 0 0 var(--secondary-orange), 0 2px 8px rgba(255, 106, 0, 0.2);
+    background: linear-gradient(90deg, rgba(255, 106, 0, 0.12), rgba(255, 140, 66, 0.08)) !important;
 }
 
 .leaderboard-table td {
-    padding: 1.5rem 1.5rem;
+    padding: 1.25rem 1.5rem;
     color: var(--text-primary);
     vertical-align: middle;
+    border-bottom: 1px solid rgba(255, 106, 0, 0.1);
 }
 
 .rank-col {
-    width: 100px;
+    width: 120px;
     text-align: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .rank-badge {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 45px;
-    height: 45px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     background: rgba(255, 106, 0, 0.2);
     color: var(--text-primary);
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1rem;
     border: 2px solid rgba(255, 106, 0, 0.3);
     transition: all 0.3s ease;
 }
@@ -409,44 +400,51 @@ onMounted(() => {
     background: linear-gradient(135deg, #ffd700, #ffed4e);
     color: var(--dark-bg);
     border-color: #ffd700;
-    box-shadow: 0 0 25px rgba(255, 215, 0, 0.6), inset 0 2px 4px rgba(255, 255, 255, 0.3);
-    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.3);
 }
 
 .rank-badge.rank-silver {
     background: linear-gradient(135deg, #c0c0c0, #e8e8e8);
     color: var(--dark-bg);
     border-color: #c0c0c0;
-    box-shadow: 0 0 20px rgba(192, 192, 192, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.3);
-    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(192, 192, 192, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.3);
 }
 
 .rank-badge.rank-bronze {
     background: linear-gradient(135deg, #cd7f32, #e6a85c);
     color: var(--dark-bg);
     border-color: #cd7f32;
-    box-shadow: 0 0 20px rgba(205, 127, 50, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.2);
-    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(205, 127, 50, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.2);
 }
 
 .player-col {
+    width: auto;
     font-weight: 600;
-    min-width: 200px;
 }
 
 .player-name {
     color: var(--text-primary);
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     font-weight: 600;
     letter-spacing: 0.02em;
 }
 
-.level-col,
-.xp-col,
-.professions-col {
+.level-col {
+    width: 150px;
     text-align: right;
     font-family: 'Courier New', 'Consolas', monospace;
-    min-width: 120px;
+}
+
+.xp-col {
+    width: 180px;
+    text-align: right;
+    font-family: 'Courier New', 'Consolas', monospace;
+}
+
+.professions-col {
+    width: 150px;
+    text-align: right;
+    font-family: 'Courier New', 'Consolas', monospace;
 }
 
 .level-value,
@@ -454,7 +452,7 @@ onMounted(() => {
 .professions-value {
     color: var(--secondary-orange);
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
