@@ -300,105 +300,162 @@ onMounted(() => {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 16px;
-    padding: 2rem;
+    padding: 0;
     overflow-x: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .leaderboard-table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
     min-width: 600px;
 }
 
 .leaderboard-table thead {
-    background: rgba(255, 106, 0, 0.1);
-    border-bottom: 2px solid var(--border-color);
+    background: linear-gradient(135deg, rgba(255, 106, 0, 0.15), rgba(255, 140, 66, 0.1));
+    border-bottom: 2px solid var(--primary-orange);
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 .leaderboard-table th {
-    padding: 1rem;
+    padding: 1.25rem 1.5rem;
     text-align: left;
     color: var(--secondary-orange);
-    font-weight: 600;
-    font-size: 0.95rem;
+    font-weight: 700;
+    font-size: 0.9rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
+    border-bottom: 2px solid var(--primary-orange);
+}
+
+.leaderboard-table th:first-child {
+    border-top-left-radius: 16px;
+}
+
+.leaderboard-table th:last-child {
+    border-top-right-radius: 16px;
 }
 
 .leaderboard-table tbody tr {
-    border-bottom: 1px solid var(--border-color);
-    transition: all 0.2s;
+    border-bottom: 1px solid rgba(255, 106, 0, 0.1);
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.leaderboard-table tbody tr:nth-child(even) {
+    background: rgba(255, 106, 0, 0.02);
+}
+
+.leaderboard-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.leaderboard-table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 16px;
+}
+
+.leaderboard-table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 16px;
 }
 
 .leaderboard-table tbody tr:hover {
-    background: rgba(255, 106, 0, 0.05);
+    background: rgba(255, 106, 0, 0.1) !important;
+    transform: translateX(4px);
+    box-shadow: -4px 0 0 var(--primary-orange), 0 2px 8px rgba(255, 106, 0, 0.2);
 }
 
 .leaderboard-table tbody tr.top-three {
-    background: rgba(255, 106, 0, 0.03);
+    background: linear-gradient(90deg, rgba(255, 106, 0, 0.08), rgba(255, 140, 66, 0.05)) !important;
+    border-left: 4px solid var(--primary-orange);
+    box-shadow: inset 4px 0 0 var(--primary-orange);
+}
+
+.leaderboard-table tbody tr.top-three:hover {
+    background: linear-gradient(90deg, rgba(255, 106, 0, 0.15), rgba(255, 140, 66, 0.1)) !important;
+    border-left-color: var(--secondary-orange);
+    box-shadow: inset 4px 0 0 var(--secondary-orange), 0 2px 8px rgba(255, 106, 0, 0.2);
 }
 
 .leaderboard-table td {
-    padding: 1.25rem 1rem;
+    padding: 1.5rem 1.5rem;
     color: var(--text-primary);
+    vertical-align: middle;
 }
 
 .rank-col {
-    width: 80px;
+    width: 100px;
     text-align: center;
 }
 
 .rank-badge {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     background: rgba(255, 106, 0, 0.2);
     color: var(--text-primary);
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    border: 2px solid rgba(255, 106, 0, 0.3);
+    transition: all 0.3s ease;
 }
 
 .rank-badge.rank-gold {
     background: linear-gradient(135deg, #ffd700, #ffed4e);
     color: var(--dark-bg);
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    border-color: #ffd700;
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.6), inset 0 2px 4px rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
 }
 
 .rank-badge.rank-silver {
     background: linear-gradient(135deg, #c0c0c0, #e8e8e8);
     color: var(--dark-bg);
-    box-shadow: 0 0 20px rgba(192, 192, 192, 0.5);
+    border-color: #c0c0c0;
+    box-shadow: 0 0 20px rgba(192, 192, 192, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
 }
 
 .rank-badge.rank-bronze {
     background: linear-gradient(135deg, #cd7f32, #e6a85c);
     color: var(--dark-bg);
-    box-shadow: 0 0 20px rgba(205, 127, 50, 0.5);
+    border-color: #cd7f32;
+    box-shadow: 0 0 20px rgba(205, 127, 50, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
 }
 
 .player-col {
     font-weight: 600;
+    min-width: 200px;
 }
 
 .player-name {
     color: var(--text-primary);
-    font-size: 1.1rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
 }
 
 .level-col,
 .xp-col,
 .professions-col {
     text-align: right;
-    font-family: 'Courier New', monospace;
+    font-family: 'Courier New', 'Consolas', monospace;
+    min-width: 120px;
 }
 
 .level-value,
 .xp-value,
 .professions-value {
     color: var(--secondary-orange);
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 968px) {
