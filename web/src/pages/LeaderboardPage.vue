@@ -94,7 +94,9 @@
                                         </span>
                                     </td>
                                     <td class="player-col">
-                                        <span class="player-name">{{ player.username }}</span>
+                                        <router-link :to="`/player/${player.username}`" class="player-name-link">
+                                            <span class="player-name">{{ player.username }}</span>
+                                        </router-link>
                                     </td>
                                     <td class="level-col">
                                         <span class="level-value">{{ formatNumber(player.level) }}</span>
@@ -422,11 +424,25 @@ onMounted(() => {
     font-weight: 600;
 }
 
+.player-name-link {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s;
+    display: inline-block;
+}
+
+.player-name-link:hover .player-name {
+    color: var(--secondary-orange);
+    text-decoration: underline;
+}
+
 .player-name {
     color: var(--text-primary);
     font-size: 1.1rem;
     font-weight: 600;
     letter-spacing: 0.02em;
+    transition: color 0.3s;
+    cursor: pointer;
 }
 
 .level-col {
